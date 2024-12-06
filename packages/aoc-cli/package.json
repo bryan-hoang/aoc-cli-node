@@ -1,0 +1,40 @@
+{
+	"name": "aoc-cli",
+	"version": "0.0.0-development",
+	"description": "An Advent of Code command-line tool",
+	"license": "MIT",
+	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
+	"type": "module",
+	"bin": {
+		"aoc": "./bin/aoc.js"
+	},
+	"files": [
+		"bin",
+		"dist"
+	],
+	"scripts": {
+		"build": "unbuild",
+		"build:stub": "unbuild --stub",
+		"prepack": "unbuild",
+		"release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
+		"test": "pnpm lint && pnpm test:types && pnpm build && pnpm test:unit",
+		"test:types": "tsc --noEmit",
+		"test:unit": "vitest --coverage"
+	},
+	"dependencies": {
+		"citty": "0.1.6",
+		"consola": "3.2.3",
+		"debug": "4.4.0",
+		"env-paths": "3.0.0",
+		"nuxi": "3.16.0",
+		"pathe": "1.1.2",
+		"scule": "1.3.0"
+	},
+	"devDependencies": {
+		"@total-typescript/tsconfig": "1.0.4",
+		"@types/debug": "4.1.12",
+		"rollup": "4.28.1",
+		"unbuild": "2.0.0",
+		"unplugin-purge-polyfills": "0.0.7"
+	}
+}

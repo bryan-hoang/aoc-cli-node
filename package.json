@@ -1,0 +1,11 @@
+{
+	"name": "aoc-cli-node",
+	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
+	"scripts": {
+		"check": "biome check"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@types/node": "22.10.1"
+	}
+}

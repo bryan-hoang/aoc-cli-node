@@ -1,0 +1,12 @@
+{
+	"name": "aoc-client",
+	"version": "0.0.0-development",
+	"description": "",
+	"keywords": [],
+	"license": "ISC",
+	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	}
+}
