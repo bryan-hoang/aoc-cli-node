@@ -2,6 +2,7 @@
 
 [![license](https://img.shields.io/github/license/bryan-hoang/aoc-cli-node)](https://github.com/bryan-hoang/aoc-cli-node/blob/main/LICENSE)
 [![CI](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/ci.yml/badge.svg)](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/ci.yml)
+[![Release](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/release.yml/badge.svg)](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/release.yml)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 An Advent of Code command-line tool developed using Node.js.
