@@ -2,6 +2,7 @@
 	"name": "aoc-cli-node",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
 	"scripts": {
+		"changeset": "changeset",
 		"check": "biome check",
 		"prerelease": "pnpm run --recursive build",
 		"release": "changeset publish"
