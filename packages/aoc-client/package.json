@@ -2,11 +2,30 @@
 	"name": "aoc-client",
 	"version": "0.0.0-development",
 	"description": "",
-	"keywords": [],
-	"license": "ISC",
+	"license": "MIT",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
-	"main": "index.js",
+	"type": "module",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		}
+	},
+	"main": "./dist/index.cjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist"
+	],
 	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"build": "unbuild",
+		"build:stub": "unbuild --stub",
+		"prepack": "unbuild",
+		"test": "attw --pack ."
+	},
+	"devDependencies": {
+		"@arethetypeswrong/cli": "catalog:",
+		"rollup": "catalog:",
+		"unbuild": "catalog:",
+		"unplugin-purge-polyfills": "catalog:"
 	}
 }

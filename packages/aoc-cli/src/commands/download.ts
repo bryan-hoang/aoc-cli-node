@@ -12,7 +12,14 @@ export default defineCommand({
 	args: {
 		...sharedArgs,
 	},
-	async run({ args }) {
+	setup(context) {
+		// Build aoc client based on args.
+		context.data = {
+			...context.data,
+			aocClient: 'foo',
+		};
+	},
+	async run({ args, data }) {
 		if (!existsSync(args['session-file'])) {
 			consola.error(
 				`Session cookie file '${args['session-file']}' could not be found.`,
@@ -22,6 +29,6 @@ export default defineCommand({
 		const sessionCookie = readFileSync(args['session-file'], {
 			encoding: 'utf-8',
 		}).trim();
-		debugLog({ sessionCookie });
+		debugLog('run:', { sessionCookie, data });
 	},
 });

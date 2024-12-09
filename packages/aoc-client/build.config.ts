@@ -3,7 +3,6 @@ import { defineBuildConfig } from 'unbuild';
 import { purgePolyfills } from 'unplugin-purge-polyfills';
 
 export default defineBuildConfig({
-	declaration: true,
 	hooks: {
 		'rollup:options'(_, options) {
 			const plugins = (options.plugins ||= []) as InputPluginOption[];
@@ -13,8 +12,5 @@ export default defineBuildConfig({
 				}),
 			);
 		},
-	},
-	rollup: {
-		inlineDependencies: true,
 	},
 });
