@@ -1,5 +1,7 @@
 # aoc-cli-node
 
+[![license](https://img.shields.io/github/license/bryan-hoang/aoc-cli-node)](https://github.com/bryan-hoang/aoc-cli-node/blob/main/LICENSE)
+[![CI](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/main.yml/badge.svg)](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/main.yml)
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
 An Advent of Code command-line tool developed using Node.js.
