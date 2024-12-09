@@ -27,5 +27,8 @@
 		"rollup": "catalog:",
 		"unbuild": "catalog:",
 		"unplugin-purge-polyfills": "catalog:"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
