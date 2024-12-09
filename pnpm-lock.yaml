@@ -74,6 +74,9 @@ importers:
 
   packages/aoc-cli:
     dependencies:
+      '@bryan-hoang/aoc-client':
+        specifier: link:../aoc-client
+        version: link:../aoc-client
       citty:
         specifier: 'catalog:'
         version: 0.1.6
