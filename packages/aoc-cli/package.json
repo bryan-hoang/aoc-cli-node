@@ -1,5 +1,5 @@
 {
-	"name": "aoc-cli",
+	"name": "@bryan-hoang/aoc-cli",
 	"version": "0.0.0-development",
 	"description": "An Advent of Code command-line tool",
 	"license": "MIT",
