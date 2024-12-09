@@ -1,16 +1,17 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-
 name: CI
 
-on:
-  push:
-    branches: ["main"]
-  pull_request:
-    branches: ["main"]
+on: [push, pull_request]
+
+permissions:
+  # To fetch code (actions/checkout)
+  contents: read
 
 jobs:
   build:
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}-${{ matrix.node-version }}
+      cancel-in-progress: true
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -30,5 +31,7 @@ jobs:
           cache: "pnpm"
       - name: Install dependencies
         run: pnpm install
-      - name: Build project
+      - name: Build
         run: pnpm run --recursive build
+      - name: Test
+        run: pnpm run --recursive --if-present test
