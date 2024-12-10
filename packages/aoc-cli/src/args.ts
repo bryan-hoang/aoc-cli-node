@@ -7,7 +7,7 @@ export function resolveArgs(argsDef: ArgsDef): Arg[] {
 		args.push({
 			...argDef,
 			name,
-			alias: toArray((argDef as any).alias),
+			alias: toArray((argDef as { alias: string }).alias),
 		});
 	}
 	return args;

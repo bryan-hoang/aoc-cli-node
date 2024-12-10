@@ -52,15 +52,16 @@ export async function renderUsage<T extends ArgsDef = ArgsDef>(
 					: [...(arg.alias || []).map((a) => `-${a}`), `--${arg.name}`].join(
 							', ',
 						)) +
-				(arg.type === 'string' && arg.valueHint
-					? `=<${arg.valueHint}>`
-					: '') +
+				(arg.type === 'string' && arg.valueHint ? `=<${arg.valueHint}>` : '') +
+				// @ts-ignore
 				(arg.type === 'enum' && arg.options
-					? `=<${arg.options.join('|')}>`
+					? // @ts-ignore
+						`=<${arg.options.join('|')}>`
 					: '');
 			const isNegative = arg.type === 'boolean' && arg.default === true;
 			const description = isNegative
-				? arg.negativeDescription || arg.description
+				? // @ts-ignore
+					arg.negativeDescription || arg.description
 				: arg.description;
 			// NOTE: Change how default hint is shown.
 			const defaultHint = arg.default ? `[default: ${arg.default}]` : '';
@@ -80,6 +81,7 @@ export async function renderUsage<T extends ArgsDef = ArgsDef>(
 		for (const [name, sub] of Object.entries(subCommands)) {
 			const subCmd = await resolveValue(sub);
 			const meta = await resolveValue(subCmd?.meta);
+			// @ts-ignore
 			if (meta?.hidden) {
 				continue;
 			}

@@ -14,7 +14,8 @@
 	],
 	"scripts": {
 		"build": "unbuild",
-		"build:stub": "unbuild --stub"
+		"build:stub": "unbuild --stub",
+		"test:types": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@bryan-hoang/aoc-client": "link:../aoc-client",
