@@ -20,13 +20,24 @@
 		"build": "unbuild",
 		"build:stub": "unbuild --stub",
 		"prepack": "unbuild",
-		"test": "attw --pack ."
+		"test:types": "tsc --noEmit && attw --pack .",
+		"test:unit": "vitest"
+	},
+	"dependencies": {
+		"consola": "catalog:",
+		"debug": "catalog:",
+		"env-paths": "catalog:",
+		"pathe": "catalog:",
+		"temporal-polyfill": "catalog:"
 	},
 	"devDependencies": {
 		"@arethetypeswrong/cli": "catalog:",
+		"@total-typescript/tsconfig": "catalog:",
+		"@types/debug": "catalog:",
 		"rollup": "catalog:",
 		"unbuild": "catalog:",
-		"unplugin-purge-polyfills": "catalog:"
+		"unplugin-purge-polyfills": "catalog:",
+		"vitest": "catalog:"
 	},
 	"publishConfig": {
 		"access": "public"
