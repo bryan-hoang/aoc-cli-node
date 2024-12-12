@@ -30,7 +30,6 @@ export class AocClient {
 		private overwriteFiles: boolean,
 		private inputFilename: string,
 		private puzzleFilename: string,
-		// private showHtmlMarkup: boolean,
 	) {}
 
 	static getBuilder() {
@@ -110,7 +109,6 @@ export class AocClientBuilder {
 	protected _overwriteFiles = false;
 	protected _inputFilename = 'input';
 	protected _puzzleFilename = 'puzzle.md';
-	protected _showHtmlMarkup = false;
 
 	buildClient() {
 		this.#validateBuild();
@@ -128,7 +126,6 @@ export class AocClientBuilder {
 			overwriteFiles: this._overwriteFiles,
 			inputFilename: this._inputFilename,
 			puzzleFilename: this._puzzleFilename,
-			showHtmlMarkup: this._showHtmlMarkup,
 		});
 		return new AocClient(
 			this._sessionCookie,
@@ -138,7 +135,6 @@ export class AocClientBuilder {
 			this._overwriteFiles,
 			this._inputFilename,
 			this._puzzleFilename,
-			// this._showHtmlMarkup,
 		);
 	}
 
