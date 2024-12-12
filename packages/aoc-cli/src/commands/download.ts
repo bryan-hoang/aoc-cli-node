@@ -50,12 +50,12 @@ export default defineCommand({
 	async run({ args, data }) {
 		const client: AocClient = data.client;
 		if (!args['input-only']) {
-			client.savePuzzleMarkdown();
+			await client.savePuzzleMarkdown();
 			consola.log(`🎅 Saved input to ${args['input-file']}`);
 		}
 
 		if (!args['puzzle-only']) {
-			client.saveInput();
+			await client.saveInput();
 			consola.log(`🎅 Saved puzzle to ${args['puzzle-file']}`);
 		}
 	},
