@@ -1,6 +1,6 @@
 {
 	"name": "@bryan-hoang/aoc-client",
-	"version": "0.0.0-development",
+	"version": "0.2.0",
 	"description": "An Advent of Code client library",
 	"license": "MIT",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
@@ -13,7 +13,9 @@
 	},
 	"main": "./dist/index.cjs",
 	"types": "./dist/index.d.ts",
-	"files": ["dist"],
+	"files": [
+		"dist"
+	],
 	"scripts": {
 		"build": "unbuild",
 		"build:stub": "unbuild --stub",
