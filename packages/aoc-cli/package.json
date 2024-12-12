@@ -7,11 +7,12 @@
 	"type": "module",
 	"exports": {
 		".": "./dist/index.mjs",
-		"./cli": "./bin/aoc.js"
+		"./cli": "./bin/aoc.mjs"
 	},
+	"types": "./dist/index.d.ts",
 	"bin": {
-		"aoc": "./bin/aoc.js",
-		"aoc-cli": "./bin/aoc.js"
+		"aoc": "./bin/aoc.mjs",
+		"aoc-cli": "./bin/aoc.mjs"
 	},
 	"files": [
 		"bin",
