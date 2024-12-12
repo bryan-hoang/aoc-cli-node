@@ -14,5 +14,11 @@ export default defineBuildConfig({
 	},
 	rollup: {
 		inlineDependencies: true,
+		commonjs: {
+			// We transitively depend on `turndown`, which has an 'ES' file that
+			// contains a `require`. See
+			// https://github.com/mixmark-io/turndown/issues/345 for more info.
+			transformMixedEsModules: true,
+		},
 	},
 });
