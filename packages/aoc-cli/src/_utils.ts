@@ -1,10 +1,10 @@
 import type { Resolvable } from 'citty';
 
-export function toArray(val: any) {
+export function toArray(val: unknown) {
 	if (Array.isArray(val)) {
 		return val;
 	}
-	return val === undefined ? [] : [val];
+	return typeof val === 'undefined' ? [] : [val];
 }
 
 export function formatLineColumns(lines: string[][], linePrefix = '') {
@@ -17,16 +17,12 @@ export function formatLineColumns(lines: string[][], linePrefix = '') {
 	return lines
 		.map((l) =>
 			l
-				.map(
-					(c, i) =>
-						linePrefix +
-						c[i === 0 ? 'padStart' : 'padEnd'](maxLength[i] as number),
-				)
-				.join('  '),
+				.map((c, i) => `${linePrefix}${c.padEnd(maxLength[i] as number)}`)
+				.join(''),
 		)
 		.join('\n');
 }
 
 export function resolveValue<T>(input: Resolvable<T>): T | Promise<T> {
-	return typeof input === 'function' ? (input as any)() : input;
+	return typeof input === 'function' ? (input as CallableFunction)() : input;
 }

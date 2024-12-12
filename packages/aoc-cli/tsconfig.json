@@ -1,20 +1,8 @@
 {
-	"extends": "@total-typescript/tsconfig/bundler/no-dom/app",
-	"compilerOptions": {
-		"esModuleInterop": false,
-		"allowSyntheticDefaultImports": true,
-		"skipLibCheck": true,
-		"target": "ESNext",
-		"module": "ESNext",
-		"moduleResolution": "Node",
-		"strict": true,
-		"noImplicitAny": true,
-		"noUncheckedIndexedAccess": true,
-		"allowJs": true,
-		"noEmit": true,
-		"noUnusedLocals": true,
-		"resolveJsonModule": true,
-		"types": ["node"]
-	},
-	"include": ["src"]
+	"extends": [
+		"@tsconfig/strictest",
+		"@total-typescript/tsconfig/bundler/no-dom/app"
+	],
+	"compilerOptions": {},
+	"exclude": ["**/dist/**", "bin/aoc.js"]
 }

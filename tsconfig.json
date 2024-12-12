@@ -1,0 +1,11 @@
+{
+	"extends": [
+		"@tsconfig/strictest",
+		"@total-typescript/tsconfig/bundler/dom/library-monorepo"
+	],
+	"compilerOptions": {
+		"noEmit": true,
+		"types": ["vitest/importMeta"]
+	},
+	"exclude": ["**/dist/**", "packages/aoc-cli/bin/aoc.js"]
+}

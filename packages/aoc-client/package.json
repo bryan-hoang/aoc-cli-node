@@ -13,20 +13,34 @@
 	},
 	"main": "./dist/index.cjs",
 	"types": "./dist/index.d.ts",
-	"files": [
-		"dist"
-	],
+	"files": ["dist"],
 	"scripts": {
 		"build": "unbuild",
 		"build:stub": "unbuild --stub",
 		"prepack": "unbuild",
-		"test": "attw --pack ."
+		"test": "vitest",
+		"test:attw": "attw --pack ."
+	},
+	"dependencies": {
+		"consola": "catalog:",
+		"cookie-es": "catalog:",
+		"debug": "catalog:",
+		"defu": "catalog:",
+		"env-paths": "catalog:",
+		"ofetch": "catalog:",
+		"pathe": "catalog:",
+		"temporal-polyfill": "catalog:",
+		"turndown": "catalog:",
+		"type-level-regexp": "catalog:"
 	},
 	"devDependencies": {
 		"@arethetypeswrong/cli": "catalog:",
-		"rollup": "catalog:",
+		"@total-typescript/tsconfig": "catalog:",
+		"@types/debug": "catalog:",
+		"@types/turndown": "catalog:",
 		"unbuild": "catalog:",
-		"unplugin-purge-polyfills": "catalog:"
+		"unplugin-purge-polyfills": "catalog:",
+		"vitest": "catalog:"
 	},
 	"publishConfig": {
 		"access": "public"

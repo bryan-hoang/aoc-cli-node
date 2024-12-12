@@ -5,30 +5,29 @@
 	"license": "MIT",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
 	"type": "module",
-	"bin": {
-		"aoc": "./bin/aoc.js"
+	"exports": {
+		".": "./dist/index.mjs",
+		"./cli": "./bin/aoc.js"
 	},
-	"files": [
-		"bin",
-		"dist"
-	],
+	"bin": {
+		"aoc": "./bin/aoc.js",
+		"aoc-cli": "./bin/aoc.js"
+	},
+	"files": ["bin", "dist"],
 	"scripts": {
 		"build": "unbuild",
-		"build:stub": "unbuild --stub",
-		"test:types": "tsc --noEmit"
+		"build:stub": "unbuild --stub"
 	},
 	"dependencies": {
-		"@bryan-hoang/aoc-client": "link:../aoc-client",
+		"@bryan-hoang/aoc-client": "workspace:*",
 		"citty": "catalog:",
 		"consola": "catalog:",
-		"debug": "catalog:",
-		"env-paths": "catalog:",
-		"pathe": "catalog:"
+		"debug": "catalog:"
 	},
 	"devDependencies": {
 		"@total-typescript/tsconfig": "catalog:",
 		"@types/debug": "catalog:",
-		"rollup": "catalog:",
+		"typescript": "catalog:",
 		"unbuild": "catalog:",
 		"unplugin-purge-polyfills": "catalog:"
 	},
