@@ -19,8 +19,6 @@ const DECEMBER = 12;
 const SESSION_COOKIE_ENV_VAR = 'ADVENT_OF_CODE_SESSION';
 const SESSION_COOKIE_FILE = 'session-cookie.txt';
 
-const turndownService = new TurndownService();
-
 export class AocClient {
 	constructor(
 		private sessionCookie: string,
@@ -38,6 +36,12 @@ export class AocClient {
 
 	async savePuzzleMarkdown() {
 		const puzzleHtml = await this.getPuzzleHtml();
+		const turndownService = new TurndownService({
+			codeBlockStyle: 'fenced',
+			bulletListMarker: '*',
+			emDelimiter: '*',
+		});
+		turndownService.escape = (content) => content;
 		const puzzleMd = turndownService.turndown(puzzleHtml);
 		saveFile({
 			path: this.puzzleFilename,
