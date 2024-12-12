@@ -30,11 +30,11 @@ export class AocClient {
 		private puzzleFilename: string,
 	) {}
 
-	static getBuilder() {
+	static getBuilder(): AocClientBuilder {
 		return new AocClientBuilder();
 	}
 
-	async savePuzzleMarkdown() {
+	async savePuzzleMarkdown(): Promise<void> {
 		const puzzleHtml = await this.getPuzzleHtml();
 		const turndownService = new TurndownService({
 			codeBlockStyle: 'fenced',
@@ -50,7 +50,7 @@ export class AocClient {
 		});
 	}
 
-	async saveInput() {
+	async saveInput(): Promise<void> {
 		const input = await this.getInput();
 		saveFile({
 			path: this.inputFilename,
@@ -114,7 +114,7 @@ export class AocClientBuilder {
 	protected _inputFilename = 'input';
 	protected _puzzleFilename = 'puzzle.md';
 
-	buildClient() {
+	buildClient(): AocClient {
 		this.#validateBuild();
 		const localDateTime = new Temporal.PlainDate(
 			this._year,
@@ -189,7 +189,7 @@ export class AocClientBuilder {
 		return this;
 	}
 
-	static getDefaultSessionCookieFile() {
+	static getDefaultSessionCookieFile(): string {
 		const paths = envPaths('advent-of-code', { suffix: '' });
 		return join(paths.config, SESSION_COOKIE_FILE);
 	}
@@ -289,8 +289,6 @@ if (import.meta.vitest) {
 		expect(() => builder.buildClient()).toThrowError(/missing field: _year/);
 		builder.latestPuzzleDay();
 		builder.overwriteFiles(true);
-		// builder.year(2024);
-		// builder.day(11);
 		const client = builder.buildClient();
 		await client.saveInput();
 	});
