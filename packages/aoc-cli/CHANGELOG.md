@@ -1,5 +1,17 @@
 # @bryan-hoang/aoc-cli
 
+## 0.3.0
+
+### Minor Changes
+
+- 6f08663: Add `help` sub-command
+
+### Patch Changes
+
+- Updated dependencies [895fb1d]
+- Updated dependencies [00606a7]
+  - @bryan-hoang/aoc-client@0.2.1
+
 ## 0.2.2
 
 ### Patch Changes

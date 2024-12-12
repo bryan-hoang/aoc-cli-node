@@ -1,6 +1,6 @@
 {
 	"name": "@bryan-hoang/aoc-client",
-	"version": "0.2.0",
+	"version": "0.2.1",
 	"description": "An Advent of Code client library",
 	"license": "MIT",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
