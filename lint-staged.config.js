@@ -1,3 +1,5 @@
 export default {
-	'*': ['pnpm lint --no-errors-on-unmatched --files-ignore-unknown=true'],
+	'*': [
+		'pnpm lint --no-errors-on-unmatched --files-ignore-unknown=true --fix --unsafe',
+	],
 };
