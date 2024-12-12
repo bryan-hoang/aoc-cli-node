@@ -15,7 +15,7 @@ export async function showUsage<T extends ArgsDef = ArgsDef>(
 	}
 }
 
-export async function renderUsage<T extends ArgsDef = ArgsDef>(
+async function renderUsage<T extends ArgsDef = ArgsDef>(
 	cmd: CommandDef<T>,
 	parent?: CommandDef<T>,
 ) {
@@ -34,7 +34,6 @@ export async function renderUsage<T extends ArgsDef = ArgsDef>(
 		if (arg.type === 'positional') {
 			const name = arg.name.toUpperCase();
 			const isRequired = arg.required !== false && arg.default === undefined;
-			// (isRequired ? " (required)" : " (optional)"
 			posLines.push([
 				`\`${name}\``,
 				arg.description || '',
@@ -52,7 +51,7 @@ export async function renderUsage<T extends ArgsDef = ArgsDef>(
 					: [...(arg.alias || []).map((a) => `-${a}`), `--${arg.name}`].join(
 							', ',
 						)) +
-				(arg.type === 'string' && arg.valueHint ? `=<${arg.valueHint}>` : '') +
+				(arg.type === 'string' && arg.valueHint ? ` <${arg.valueHint}>` : '') +
 				// @ts-ignore
 				(arg.type === 'enum' && arg.options
 					? // @ts-ignore
@@ -118,19 +117,15 @@ export async function renderUsage<T extends ArgsDef = ArgsDef>(
 		usageLines.push('');
 	}
 
-	if (argLines.length > 0) {
-		usageLines.push(colors.underline(colors.bold('OPTIONS')), '');
-		usageLines.push(formatLineColumns(argLines, '  '));
-		usageLines.push('');
-	}
-
 	if (commandsLines.length > 0) {
 		usageLines.push(colors.underline(colors.bold('COMMANDS')), '');
 		usageLines.push(formatLineColumns(commandsLines, '  '));
-		usageLines.push(
-			'',
-			`Use \`${commandName} <command> --help\` for more information about a command.`,
-		);
+		usageLines.push('');
+	}
+
+	if (argLines.length > 0) {
+		usageLines.push(colors.underline(colors.bold('OPTIONS')), '');
+		usageLines.push(formatLineColumns(argLines, '  '));
 	}
 
 	return usageLines.filter((l) => typeof l === 'string').join('\n');

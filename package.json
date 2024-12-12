@@ -1,18 +1,30 @@
 {
 	"name": "aoc-cli-node",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
+	"type": "module",
 	"scripts": {
+		"build": "pnpm --filter @bryan-hoang/aoc-client run build && pnpm --filter @bryan-hoang/aoc-cli run build",
 		"changeset": "changeset",
-		"check": "biome check",
-		"prerelease": "pnpm run --recursive build",
-		"release": "changeset publish"
+		"lint": "biome check",
+		"lint:knip": "knip",
+		"prepare": "husky",
+		"prerelease": "pnpm run build",
+		"release": "changeset publish",
+		"test": "pnpm --filter './packages/**' test run",
+		"test:attw": "pnpm --filter './packages/**' test:attw",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
-		"@arethetypeswrong/cli": "catalog:",
 		"@biomejs/biome": "catalog:",
 		"@changesets/cli": "catalog:",
+		"@total-typescript/tsconfig": "catalog:",
+		"@tsconfig/strictest": "catalog:",
 		"@types/node": "catalog:",
-		"prettier": "catalog:"
+		"husky": "catalog:",
+		"knip": "catalog:",
+		"lint-staged": "catalog:",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
 	},
 	"packageManager": "pnpm@9.15.0+sha512.76e2379760a4328ec4415815bcd6628dee727af3779aaa4c914e3944156c4299921a89f976381ee107d41f12cfa4b66681ca9c718f0668fa0831ed4c6d8ba56c"
 }

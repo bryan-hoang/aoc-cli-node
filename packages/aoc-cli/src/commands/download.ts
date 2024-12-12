@@ -1,8 +1,7 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { AocClient } from '@bryan-hoang/aoc-client';
 import { defineCommand } from 'citty';
 import consola from 'consola';
-import { debugLog } from '../debug';
-import { sharedArgs } from './_shared';
+import { sharedArgs, sharedSetup } from './_shared';
 
 export default defineCommand({
 	meta: {
@@ -10,25 +9,54 @@ export default defineCommand({
 		description: 'Save puzzle description and input to files',
 	},
 	args: {
+		'input-only': {
+			alias: 'I',
+			type: 'boolean',
+			description: 'Download puzzle input only',
+		},
+		'puzzle-only': {
+			alias: 'P',
+			type: 'boolean',
+			description: 'Download puzzle description only',
+		},
+		'input-file': {
+			alias: 'i',
+			type: 'string',
+			description: 'Path where to save puzzle input',
+			default: 'input',
+		},
+		'puzzle-file': {
+			alias: 'p',
+			type: 'string',
+			description: 'Path where to save puzzle description',
+			default: 'puzzle.md',
+		},
+		overwrite: {
+			alias: 'o',
+			type: 'boolean',
+			description: 'Overwrite files if they already exist',
+			default: false,
+		},
 		...sharedArgs,
 	},
 	setup(context) {
-		// Build aoc client based on args.
+		const builder = AocClient.getBuilder();
+		builder.overwriteFiles(context.args.overwrite);
 		context.data = {
-			...context.data,
-			aocClient: 'foo',
+			builder,
 		};
+		sharedSetup(context);
 	},
 	async run({ args, data }) {
-		if (!existsSync(args['session-file'])) {
-			consola.error(
-				`Session cookie file '${args['session-file']}' could not be found.`,
-			);
-			process.exit(1);
+		const client: AocClient = data.client;
+		if (!args['input-only']) {
+			client.savePuzzleMarkdown();
+			consola.log(`🎅 Saved input to ${args['input-file']}`);
 		}
-		const sessionCookie = readFileSync(args['session-file'], {
-			encoding: 'utf-8',
-		}).trim();
-		debugLog('run:', { sessionCookie, data });
+
+		if (!args['puzzle-only']) {
+			client.saveInput();
+			consola.log(`🎅 Saved puzzle to ${args['puzzle-file']}`);
+		}
 	},
 });
