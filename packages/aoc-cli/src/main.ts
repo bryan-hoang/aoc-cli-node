@@ -12,7 +12,6 @@ export const main = defineCommand({
 	args: {
 		...sharedArgs,
 		version: {
-			alias: 'V',
 			type: 'string',
 			description: 'Print version information',
 		},
