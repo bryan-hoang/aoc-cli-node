@@ -7,7 +7,7 @@
 
 An Advent of Code command-line tool developed using Node.js.
 
-TODO: Fill out this long description.
+TODO: fill out this long description.
 
 ## Table of Contents
 
@@ -37,7 +37,7 @@ TODO: Fill out this long description.
 
 PRs accepted.
 
-Small note: If editing the README, please conform to the
+Small note: if editing the README, please conform to the
 [standard-readme](https://github.com/RichardLitt/standard-readme) specification.
 
 ## License
