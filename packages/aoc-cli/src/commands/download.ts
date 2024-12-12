@@ -49,14 +49,30 @@ export default defineCommand({
 	},
 	async run({ args, data }) {
 		const client: AocClient = data.client;
-		if (!args['input-only']) {
-			await client.savePuzzleMarkdown();
-			consola.log(`🎅 Saved input to ${args['input-file']}`);
-		}
+		try {
+			if (!args['input-only']) {
+				await client.savePuzzleMarkdown();
+				consola.log(`🎅 Saved puzzle to ${args['puzzle-file']}`);
+			}
 
-		if (!args['puzzle-only']) {
-			await client.saveInput();
-			consola.log(`🎅 Saved puzzle to ${args['puzzle-file']}`);
+			if (!args['puzzle-only']) {
+				await client.saveInput();
+				consola.log(`🎅 Saved input to ${args['input-file']}`);
+			}
+		} catch (error: unknown) {
+			if (!(error instanceof Error)) {
+				throw error;
+			}
+
+			// @ts-ignore
+			if (error.code === 'EEXIST') {
+				// @ts-ignore
+				consola.error(`${error.path} already exists, not overwriting`);
+				consola.info('Consider passing the -o|--overwrite option');
+				process.exit(1);
+			} else {
+				throw error;
+			}
 		}
 	},
 });
