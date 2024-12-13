@@ -1,7 +1,4 @@
 {
-	"extends": [
-		"../../tsconfig.json",
-		"@total-typescript/tsconfig/bundler/no-dom/library-monorepo"
-	],
+	"extends": ["../../tsconfig.json"],
 	"compilerOptions": {}
 }
