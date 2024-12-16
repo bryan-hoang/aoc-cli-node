@@ -1,7 +1,7 @@
-import { defineBuildConfig } from 'unbuild';
+import { type BuildConfig, defineBuildConfig } from 'unbuild';
 import { purgePolyfills } from 'unplugin-purge-polyfills';
 
-export default defineBuildConfig({
+const config: BuildConfig[] = defineBuildConfig({
 	hooks: {
 		'rollup:options'(_, options) {
 			const plugins = options.plugins;
@@ -22,3 +22,5 @@ export default defineBuildConfig({
 		},
 	},
 });
+
+export default config;

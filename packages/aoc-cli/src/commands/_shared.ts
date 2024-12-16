@@ -21,7 +21,7 @@ export const sharedArgs = {
 		alias: 's',
 		type: 'string',
 		description: 'Path to session cookie file',
-		default: AocClientBuilder.getDefaultSessionCookieFile(),
+		default: AocClientBuilder.getDefaultSessionCookieFile() as string,
 		valueHint: 'PATH',
 	},
 	help: {
@@ -29,26 +29,22 @@ export const sharedArgs = {
 		type: 'string',
 		description: 'Print help information',
 	},
-} as const satisfies ArgsDef;
+} as const;
 
 export function sharedSetup<TSharedArgs extends ArgsDef = ArgsDef>(
 	context: CommandContext<TSharedArgs>,
-) {
+): void {
 	// Shared setup should always use the same shared arguments.
 	const args = context.args as ParsedArgs<typeof sharedArgs>;
 	debugLog('Setup args:', args);
 
 	const builder: AocClientBuilder =
 		context.data?.builder ?? AocClient.getBuilder();
-	if (args['session-file']) {
-		builder.getSessionCookieFromFile(args['session-file']);
-	} else {
-		builder.getSessionCookieFromDefaultLocations();
-	}
+
+	builder.getSessionCookieFromFile(args['session-file']);
 
 	const year = Number(args.year);
 	const day = Number(args.day);
-
 	if (!Number.isNaN(year) && !Number.isNaN(day)) {
 		builder.year(year).day(day);
 	} else if (!Number.isNaN(year) && Number.isNaN(day)) {

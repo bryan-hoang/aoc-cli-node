@@ -1,8 +1,8 @@
-import { defineCommand } from 'citty';
+import { type CommandDef, defineCommand } from 'citty';
 import { main } from '../main';
 import { showUsage } from '../usage';
 
-export default defineCommand({
+const help: CommandDef = defineCommand({
 	meta: {
 		name: 'help',
 		description: 'Print this message or the help of the given subcommand(s)',
@@ -11,3 +11,5 @@ export default defineCommand({
 		showUsage(main);
 	},
 });
+
+export default help;

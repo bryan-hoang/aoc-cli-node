@@ -1,13 +1,14 @@
 import type { Resolvable } from 'citty';
 
-export function toArray(val: unknown) {
+// biome-ignore lint/suspicious/noExplicitAny: Accurate return type.
+export function toArray(val: unknown): any[] {
 	if (Array.isArray(val)) {
 		return val;
 	}
 	return typeof val === 'undefined' ? [] : [val];
 }
 
-export function formatLineColumns(lines: string[][], linePrefix = '') {
+export function formatLineColumns(lines: string[][], linePrefix = ''): string {
 	const maxLength: number[] = [];
 	for (const line of lines) {
 		for (const [i, element] of line.entries()) {

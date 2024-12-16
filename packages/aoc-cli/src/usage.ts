@@ -7,7 +7,7 @@ import { resolveArgs } from './args';
 export async function showUsage<T extends ArgsDef = ArgsDef>(
 	cmd: CommandDef<T>,
 	parent?: CommandDef<T>,
-) {
+): Promise<void> {
 	try {
 		consola.log(`${await renderUsage(cmd, parent)}\n`);
 	} catch (error) {

@@ -1,7 +1,7 @@
-import { defineBuildConfig } from 'unbuild';
+import { type BuildConfig, defineBuildConfig } from 'unbuild';
 import { purgePolyfills } from 'unplugin-purge-polyfills';
 
-export default defineBuildConfig({
+const config: BuildConfig[] = defineBuildConfig({
 	sourcemap: true,
 	hooks: {
 		'rollup:options'(_, options) {
@@ -17,3 +17,5 @@ export default defineBuildConfig({
 		'import.meta.vitest': 'undefined',
 	},
 });
+
+export default config;

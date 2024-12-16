@@ -1,20 +1,22 @@
-import { defineCommand } from 'citty';
+import { type ArgsDef, type CommandDef, defineCommand } from 'citty';
 import aocCli from '../package.json' assert { type: 'json' };
 import { commands } from './commands';
 import { sharedArgs } from './commands/_shared';
 
-export const main = defineCommand({
+const args: ArgsDef = {
+	...sharedArgs,
+	version: {
+		type: 'string',
+		description: 'Print version information',
+	},
+} as const;
+
+export const main: CommandDef<typeof args> = defineCommand({
+	args,
 	meta: {
 		name: 'aoc',
 		version: aocCli.version,
 		description: aocCli.description,
-	},
-	args: {
-		...sharedArgs,
-		version: {
-			type: 'string',
-			description: 'Print version information',
-		},
 	},
 	subCommands: commands,
 });

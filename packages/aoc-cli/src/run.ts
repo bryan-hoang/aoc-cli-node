@@ -4,13 +4,13 @@ import { commands } from './commands';
 import { main } from './main';
 import { showUsage } from './usage';
 
-export const runMain = () => _runMain(main, { showUsage });
+export const runMain: () => Promise<void> = () => _runMain(main, { showUsage });
 
 export async function runCommand(
 	name: string,
 	argv: string[] = process.argv.slice(2),
 	data: { overrides?: Record<string, unknown> } = {},
-) {
+): Promise<{ result: unknown }> {
 	if (!(name in commands)) {
 		throw new Error(`Invalid command ${name}`);
 	}
