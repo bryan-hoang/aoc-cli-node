@@ -1,6 +1,6 @@
 {
 	"name": "@bryan-hoang/aoc-cli",
-	"version": "0.3.0",
+	"version": "1.0.0",
 	"description": "An Advent of Code command-line tool",
 	"license": "MIT",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",

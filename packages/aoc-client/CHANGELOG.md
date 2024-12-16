@@ -1,5 +1,11 @@
 # @bryan-hoang/aoc-client
 
+## 1.0.0
+
+### Major Changes
+
+- 122a426: Add ability to submit answers
+
 ## 0.2.1
 
 ### Patch Changes
