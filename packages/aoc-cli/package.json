@@ -2,6 +2,15 @@
 	"name": "@bryan-hoang/aoc-cli",
 	"version": "0.3.0",
 	"description": "An Advent of Code command-line tool",
+	"keywords": [],
+	"homepage": "https://github.com/bryan-hoang/aoc-cli-node#readme",
+	"bugs": {
+		"url": "https://github.com/bryan-hoang/aoc-cli-node/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/bryan-hoang/aoc-cli-node.git"
+	},
 	"license": "MIT",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
 	"type": "module",
@@ -20,6 +29,7 @@
 	],
 	"scripts": {
 		"build": "unbuild",
+		"build:docs": "automd",
 		"build:stub": "unbuild --stub"
 	},
 	"dependencies": {
@@ -29,7 +39,6 @@
 		"debug": "catalog:"
 	},
 	"devDependencies": {
-		"@total-typescript/tsconfig": "catalog:",
 		"@types/debug": "catalog:",
 		"typescript": "catalog:",
 		"unbuild": "catalog:",

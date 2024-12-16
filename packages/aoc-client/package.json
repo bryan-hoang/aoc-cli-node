@@ -2,12 +2,20 @@
 	"name": "@bryan-hoang/aoc-client",
 	"version": "0.2.1",
 	"description": "An Advent of Code client library",
+	"keywords": [],
+	"homepage": "https://github.com/bryan-hoang/aoc-cli-node#readme",
+	"bugs": {
+		"url": "https://github.com/bryan-hoang/aoc-cli-node/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/bryan-hoang/aoc-cli-node.git"
+	},
 	"license": "MIT",
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
 	"type": "module",
 	"exports": {
 		".": {
-			"types": "./dist/index.d.ts",
 			"import": "./dist/index.mjs",
 			"require": "./dist/index.cjs"
 		}
@@ -19,6 +27,7 @@
 	],
 	"scripts": {
 		"build": "unbuild",
+		"build:docs": "automd && tsdoc --src=src/lib.ts",
 		"build:stub": "unbuild --stub",
 		"prepack": "unbuild",
 		"test": "vitest",
@@ -38,7 +47,6 @@
 	},
 	"devDependencies": {
 		"@arethetypeswrong/cli": "catalog:",
-		"@total-typescript/tsconfig": "catalog:",
 		"@types/debug": "catalog:",
 		"@types/turndown": "catalog:",
 		"unbuild": "catalog:",

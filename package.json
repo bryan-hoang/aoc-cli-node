@@ -4,6 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"build": "pnpm --filter @bryan-hoang/aoc-client run build && pnpm --filter @bryan-hoang/aoc-cli run build",
+		"build:docs": "automd && tsdoc --src=packages/aoc-client/src/lib.ts --repo=https://github.com/bryan-hoang/aoc-cli-node && pnpm run -r build:docs",
 		"changeset": "changeset",
 		"lint": "biome check",
 		"lint:knip": "knip",
@@ -20,9 +21,11 @@
 		"@total-typescript/tsconfig": "catalog:",
 		"@tsconfig/strictest": "catalog:",
 		"@types/node": "catalog:",
+		"automd": "catalog:",
 		"husky": "catalog:",
 		"knip": "catalog:",
 		"lint-staged": "catalog:",
+		"tsdoc-markdown": "catalog:",
 		"typescript": "catalog:",
 		"vitest": "catalog:"
 	},
