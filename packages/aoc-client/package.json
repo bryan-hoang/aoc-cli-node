@@ -1,6 +1,6 @@
 {
 	"name": "@bryan-hoang/aoc-client",
-	"version": "0.2.1",
+	"version": "1.0.0",
 	"description": "An Advent of Code client library",
 	"keywords": [],
 	"homepage": "https://github.com/bryan-hoang/aoc-cli-node#readme",

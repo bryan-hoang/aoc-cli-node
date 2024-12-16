@@ -1,5 +1,16 @@
 # @bryan-hoang/aoc-cli
 
+## 1.0.0
+
+### Major Changes
+
+- 122a426: Add ability to submit answers
+
+### Patch Changes
+
+- Updated dependencies [122a426]
+  - @bryan-hoang/aoc-client@1.0.0
+
 ## 0.3.0
 
 ### Minor Changes
