@@ -1,13 +1,15 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import consola from 'consola';
 import { serialize as serializeCookie } from 'cookie-es';
+import defu from 'defu';
 import envPaths from 'env-paths';
+import { type FetchOptions, ofetch } from 'ofetch';
 import { join } from 'pathe';
 import { Temporal } from 'temporal-polyfill';
 import TurndownService from 'turndown';
 import { createRegExp } from 'type-level-regexp';
+import aocClient from '../package.json' assert { type: 'json' };
 import { debugLog } from './debug';
-import { fetchAoc } from './fetch';
 
 const FIRST_EVENT_YEAR = 2015;
 const FIRST_PUZZLE_DAY = 1;
@@ -18,6 +20,8 @@ const DECEMBER = 12;
 
 const SESSION_COOKIE_ENV_VAR = 'ADVENT_OF_CODE_SESSION';
 const SESSION_COOKIE_FILE = 'session-cookie.txt';
+
+const MAIN_REGEXP = createRegExp('<main>(?<main>.*)</main>', ['i', 's']);
 
 export class AocClient {
 	constructor(
@@ -64,16 +68,8 @@ export class AocClient {
 
 		debugLog(`🦌 Fetching puzzle for day ${this.day}, ${this.year}`);
 
-		const response = await fetchAoc<string, 'text'>(
-			`/${this.year}/day/${this.day}`,
-			{
-				headers: {
-					Cookie: serializeCookie('session', this.sessionCookie),
-				},
-			},
-		);
-		const puzzleRegexp = createRegExp('<main>(?<main>.*)</main>', ['i', 's']);
-		const puzzleHtml = response.match(puzzleRegexp)?.groups.main;
+		const response = await this.fetch(`/${this.year}/day/${this.day}`);
+		const puzzleHtml = response.match(MAIN_REGEXP)?.groups.main;
 		return puzzleHtml as string;
 	}
 
@@ -82,14 +78,7 @@ export class AocClient {
 
 		debugLog(`🦌 Fetching input for day ${this.day}, ${this.year}`);
 
-		const response = await fetchAoc<string, 'text'>(
-			`/${this.year}/day/${this.day}/input`,
-			{
-				headers: {
-					Cookie: serializeCookie('session', this.sessionCookie),
-				},
-			},
-		);
+		const response = await this.fetch(`/${this.year}/day/${this.day}/input`);
 
 		return response;
 	}
@@ -103,6 +92,56 @@ export class AocClient {
 	isDayUnlocked(): boolean {
 		const now = Temporal.Now.zonedDateTimeISO(RELEASE_TIMEZONE_ID);
 		return now.since(this.unlockDateTime).milliseconds > 0;
+	}
+
+	async submitAnswerAndShowOutcome(
+		puzzlePart: number,
+		answer: string,
+	): Promise<void> {
+		const outcomeHtml = await this.submitAnswerHtml(puzzlePart, answer);
+		const turndownService = new TurndownService();
+		turndownService.escape = (content) => content;
+		consola.log(turndownService.turndown(outcomeHtml));
+	}
+
+	async submitAnswerHtml(puzzlePart: number, answer: string): Promise<string> {
+		this.ensureDayUnlocked();
+
+		debugLog(
+			`🦌 Submitting answer for part ${puzzlePart}, day ${this.day}, ${this.year}`,
+		);
+
+		const response = await this.fetch(`/${this.year}/day/${this.day}/answer`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			},
+			body: new URLSearchParams({
+				answer,
+				level: String(puzzlePart),
+			}),
+		});
+		const mainHtml = String(response.match(MAIN_REGEXP)?.groups.main);
+		return mainHtml;
+	}
+
+	async fetch(
+		pathname: string,
+		options?: FetchOptions<'text'>,
+	): Promise<string> {
+		const defaultOptions: FetchOptions<'text'> = {
+			baseURL: 'https://adventofcode.com/',
+			headers: {
+				Cookie: serializeCookie('session', this.sessionCookie),
+				'User-Agent': `${aocClient.name.replaceAll('/', '-')}/${
+					aocClient.version
+				}`,
+			},
+		};
+
+		debugLog('fetch options:', defu(options, defaultOptions));
+
+		return ofetch<string, 'text'>(pathname, defu(options, defaultOptions));
 	}
 }
 
@@ -288,8 +327,7 @@ if (import.meta.vitest) {
 		builder.getSessionCookieFromDefaultLocations();
 		expect(() => builder.buildClient()).toThrowError(/missing field: _year/);
 		builder.latestPuzzleDay();
-		builder.overwriteFiles(true);
 		const client = builder.buildClient();
-		await client.saveInput();
+		await client.submitAnswerAndShowOutcome(1, '42');
 	});
 }
