@@ -1,11 +1,21 @@
-# aoc-cli-node
+# @bryan-hoang/aoc-client
 
+<!-- automd:badges github="bryan-hoang/aoc-cli-node" license bundlephobia -->
+
+[![npm version](https://img.shields.io/npm/v/@bryan-hoang/aoc-client)](https://npmjs.com/package/@bryan-hoang/aoc-client)
+[![npm downloads](https://img.shields.io/npm/dm/@bryan-hoang/aoc-client)](https://npm.chart.dev/@bryan-hoang/aoc-client)
+[![bundle size](https://img.shields.io/bundlephobia/minzip/@bryan-hoang/aoc-client)](https://bundlephobia.com/package/@bryan-hoang/aoc-client)
 [![license](https://img.shields.io/github/license/bryan-hoang/aoc-cli-node)](https://github.com/bryan-hoang/aoc-cli-node/blob/main/LICENSE)
-[![CI](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/ci.yml/badge.svg)](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/ci.yml)
-[![Release](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/release.yml/badge.svg)](https://github.com/bryan-hoang/aoc-cli-node/actions/workflows/release.yml)
+
+<!-- /automd -->
+
 [![standard-readme compliant](https://img.shields.io/badge/standard--readme-OK-green.svg?style=flat-square)](https://github.com/RichardLitt/standard-readme)
 
-An Advent of Code command-line tool developed using Node.js.
+A TS library for Advent of Code.
+
+It was primarily developed to build the
+[`@bryan-hoang/aoc-cli`](https://www.npmjs.com/package/@bryan-hoang/aoc-cli)
+command-line tool, but it can also be integrated into other projects.
 
 ## Table of Contents
 
@@ -16,55 +26,6 @@ An Advent of Code command-line tool developed using Node.js.
 - [License](#license)
 
 ## Install
-
-For the command-line tool:
-
-```console
-# ✨ Auto-detect
-npx nypm install -g @bryan-hoang/aoc-cli
-
-# npm
-npm install -g @bryan-hoang/aoc-cli
-
-# yarn
-yarn add -g @bryan-hoang/aoc-cli
-
-# pnpm
-pnpm install -g @bryan-hoang/aoc-cli
-
-# bun
-bun install -g @bryan-hoang/aoc-cli
-
-# deno
-deno install -g @bryan-hoang/aoc-cli
-
-# Running the tool
-aoc <args>
-# or
-aoc-cli <args>
-```
-
-or
-
-<!-- automd:pm-x version="latest" name="@bryan-hoang/aoc-cli" args="<args>" -->
-
-```sh
-# npm
-npx @bryan-hoang/aoc-cli@latest <args>
-
-# pnpm
-pnpm dlx @bryan-hoang/aoc-cli@latest <args>
-
-# bun
-bunx @bryan-hoang/aoc-cli@latest <args>
-
-# deno
-deno run -A npm:@bryan-hoang/aoc-cli@latest <args>
-```
-
-<!-- /automd -->
-
-For the client library:
 
 <!-- automd:pm-install name="@bryan-hoang/aoc-client" -->
 
@@ -92,32 +53,9 @@ deno install @bryan-hoang/aoc-client
 
 ## Usage
 
-For the command-line tool:
+Importing:
 
-```console
-$ aoc help
-An Advent of Code command-line tool
-
-USAGE aoc [OPTIONS] submit|download|help
-
-COMMANDS
-
-  submit    Submit puzzle answer
-  download  Save puzzle description and input to files
-  help      Print this message or the help of the given subcommand(s)
-
-OPTIONS
-
-  -d, --day <DAY>            Puzzle day [default: last unlocked day (during Advent of Code month)]
-  -y, --year <YEAR>          Puzzle year [default: year of current or last Advent of Code event]
-  -s, --session-file <PATH>  Path to session cookie file [default: /home/bryan/.config/advent-of-code/session-cookie.txt]
-  -h, --help                 Print help information
-  --version                  Print version information
-```
-
-For the client library:
-
-<!-- automd:jsimport cjs cdn name="@bryan-hoang/aoc-client" src="./packages/aoc-client/src/lib.ts" -->
+<!-- automd:jsimport cjs cdn name="@bryan-hoang/aoc-client" src="./src/lib.ts" -->
 
 **ESM** (Node.js, Bun, Deno)
 
@@ -142,11 +80,11 @@ import {
 
 <!-- /automd -->
 
+API:
+
 <!-- TSDOC_START -->
 
 ## :factory: AocClientBuilder
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L26)
 
 ### Methods
 
@@ -168,15 +106,11 @@ import {
 | ---------- | ---------- |
 | `buildClient` | `() => AocClient` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L34)
-
 #### :gear: #validateBuild
 
 | Method | Type |
 | ---------- | ---------- |
 | `#validateBuild` | `() => asserts this is this and { _sessionCookie: string; _year: number; _day: number; }` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L62)
 
 #### :gear: getSessionCookieFromDefaultLocations
 
@@ -184,15 +118,11 @@ import {
 | ---------- | ---------- |
 | `getSessionCookieFromDefaultLocations` | `() => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L76)
-
 #### :gear: getSessionCookieFromFile
 
 | Method | Type |
 | ---------- | ---------- |
 | `getSessionCookieFromFile` | `(file: string) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L97)
 
 #### :gear: getDefaultSessionCookieFile
 
@@ -200,15 +130,11 @@ import {
 | ---------- | ---------- |
 | `getDefaultSessionCookieFile` | `() => string` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L109)
-
 #### :gear: sessionCookie
 
 | Method | Type |
 | ---------- | ---------- |
 | `sessionCookie` | `(sessionCookie: string) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L114)
 
 #### :gear: year
 
@@ -216,15 +142,11 @@ import {
 | ---------- | ---------- |
 | `year` | `(year: number) => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L125)
-
 #### :gear: day
 
 | Method | Type |
 | ---------- | ---------- |
 | `day` | `(day: number) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L134)
 
 #### :gear: latestPuzzleDay
 
@@ -232,15 +154,11 @@ import {
 | ---------- | ---------- |
 | `latestPuzzleDay` | `() => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L148)
-
 #### :gear: latestEventYear
 
 | Method | Type |
 | ---------- | ---------- |
 | `latestEventYear` | `() => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L168)
 
 #### :gear: overwriteFiles
 
@@ -248,12 +166,8 @@ import {
 | ---------- | ---------- |
 | `overwriteFiles` | `(overwriteFiles: boolean) => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L181)
-
 
 ## :factory: AocClient
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L187)
 
 ### Methods
 
@@ -267,23 +181,17 @@ import {
 | ---------- | ---------- |
 | `getBuilder` | `() => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L198)
-
 #### :gear: ensureDayUnlocked
 
 | Method | Type |
 | ---------- | ---------- |
 | `ensureDayUnlocked` | `() => void` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L247)
-
 #### :gear: isDayUnlocked
 
 | Method | Type |
 | ---------- | ---------- |
 | `isDayUnlocked` | `() => boolean` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L253)
 
 
 <!-- TSDOC_END -->
@@ -302,10 +210,6 @@ Small note: if editing the README, please conform to the
 ## License
 
 MIT © 2024 Bryan Hoang
-
-Functionality is inspired by
-[scarvalhojr/aoc-cli](https://github.com/scarvalhojr/aoc-cli). Project structure
-is inspired by [nuxt/cli](https://github.com/nuxt/cli).
 
 <!-- automd:with-automd -->
 
