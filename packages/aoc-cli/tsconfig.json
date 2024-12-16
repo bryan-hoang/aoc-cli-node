@@ -1,8 +1,4 @@
 {
-	"extends": [
-		"@tsconfig/strictest",
-		"@total-typescript/tsconfig/bundler/no-dom/app"
-	],
-	"compilerOptions": {},
-	"exclude": ["**/dist/**", "bin/aoc.js"]
+	"extends": ["../../tsconfig.json"],
+	"compilerOptions": {}
 }

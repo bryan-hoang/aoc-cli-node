@@ -6,8 +6,9 @@
 	"compilerOptions": {
 		"allowJs": false,
 		"checkJs": false,
-		"composite": true,
+		"declaration": true,
 		"isolatedDeclarations": true,
+		"noPropertyAccessFromIndexSignature": false,
 		"types": ["node", "vitest/importMeta"]
 	},
 	"exclude": ["**/dist/**", "packages/aoc-cli/bin/aoc.js"]
