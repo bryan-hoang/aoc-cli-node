@@ -19,7 +19,8 @@ export function formatLineColumns(lines: string[][], linePrefix = ''): string {
 		.map((l) =>
 			l
 				.map((c, i) => `${linePrefix}${c.padEnd(maxLength[i] as number)}`)
-				.join(''),
+				.join('')
+				.trimEnd(),
 		)
 		.join('\n');
 }

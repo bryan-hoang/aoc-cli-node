@@ -23,6 +23,167 @@ const SESSION_COOKIE_FILE = 'session-cookie.txt';
 
 const MAIN_REGEXP = createRegExp('<main>(?<main>.*)</main>', ['i', 's']);
 
+export class AocClientBuilder {
+	protected _sessionCookie?: string;
+	protected _year?: number;
+	protected _day?: number;
+	protected _overwriteFiles = false;
+	protected _inputFilename = 'input';
+	protected _puzzleFilename = 'puzzle.md';
+
+	buildClient(): AocClient {
+		this.#validateBuild();
+		const localDateTime = new Temporal.PlainDate(
+			this._year,
+			DECEMBER,
+			this._day,
+		);
+		const unlockDateTime = localDateTime.toZonedDateTime(RELEASE_TIMEZONE_ID);
+		debugLog('Building client:', {
+			sessionCookie: this._sessionCookie,
+			unlockDateTime: String(unlockDateTime),
+			year: this._year,
+			day: this._day,
+			overwriteFiles: this._overwriteFiles,
+			inputFilename: this._inputFilename,
+			puzzleFilename: this._puzzleFilename,
+		});
+		return new AocClient(
+			this._sessionCookie,
+			unlockDateTime,
+			this._year,
+			this._day,
+			this._overwriteFiles,
+			this._inputFilename,
+			this._puzzleFilename,
+		);
+	}
+
+	#validateBuild(): asserts this is this & {
+		_sessionCookie: string;
+		_year: number;
+		_day: number;
+	} {
+		for (const field of ['_sessionCookie', '_year', '_day'] as const) {
+			if (typeof this[field] === 'undefined') {
+				throw new Error(
+					`Failed to create client due to missing field: ${field}`,
+				);
+			}
+		}
+	}
+
+	getSessionCookieFromDefaultLocations(): AocClientBuilder {
+		const cookie = process.env[SESSION_COOKIE_ENV_VAR];
+		if (typeof cookie === 'string') {
+			if (cookie !== '') {
+				debugLog(
+					`🍪 Loading session cookie from '${SESSION_COOKIE_ENV_VAR}' environment variable`,
+				);
+
+				return this.sessionCookie(cookie);
+			}
+
+			consola.warn(
+				`🍪 Environment variable '${SESSION_COOKIE_ENV_VAR} is set but it is empty, ignoring`,
+			);
+		}
+
+		return this.getSessionCookieFromFile(
+			AocClientBuilder.getDefaultSessionCookieFile(),
+		);
+	}
+
+	getSessionCookieFromFile(file: string): AocClientBuilder {
+		debugLog(`🍪 Loading session cookie from ${file}`);
+		try {
+			this._sessionCookie = readFileSync(file, { encoding: 'utf-8' }).trim();
+		} catch (error) {
+			throw new Error(`Failed to read session cookie from ${file}`, {
+				cause: error,
+			});
+		}
+		return this;
+	}
+
+	static getDefaultSessionCookieFile(): string {
+		const paths = envPaths('advent-of-code', { suffix: '' });
+		return join(paths.config, SESSION_COOKIE_FILE);
+	}
+
+	sessionCookie(sessionCookie: string): AocClientBuilder {
+		debugLog({ sessionCookie });
+		if (!/^[0-9a-fA-F]+$/.test(sessionCookie)) {
+			throw new Error('Invalid session cookie');
+		}
+
+		this._sessionCookie = sessionCookie;
+
+		return this;
+	}
+
+	year(year: number): AocClientBuilder {
+		if (year < FIRST_EVENT_YEAR || !Number.isInteger(year)) {
+			throw new Error(`${year} is not a valid Advent of Code year`);
+		}
+
+		this._year = year;
+		return this;
+	}
+
+	day(day: number): AocClientBuilder {
+		if (
+			!Array(LAST_PUZZLE_DAY)
+				.fill(0)
+				.map((_, i) => i + FIRST_PUZZLE_DAY)
+				.includes(day)
+		) {
+			throw new Error(`${day} is not a valid Advent of Code day`);
+		}
+
+		this._day = day;
+		return this;
+	}
+
+	latestPuzzleDay(): AocClientBuilder {
+		if (typeof this._year === 'undefined') {
+			this.latestEventYear();
+		}
+
+		const eventYear = this._year;
+		const now = Temporal.Now.zonedDateTimeISO(RELEASE_TIMEZONE_ID);
+
+		if (now.year === eventYear && now.month === DECEMBER) {
+			if (now.day < LAST_PUZZLE_DAY) {
+				return this.day(now.day);
+			}
+			return this.day(LAST_PUZZLE_DAY);
+		}
+		if (now.year < (eventYear as number)) {
+			return this.day(LAST_PUZZLE_DAY);
+		}
+		return this.day(FIRST_PUZZLE_DAY);
+	}
+
+	latestEventYear(): AocClientBuilder {
+		const now = Temporal.Now.zonedDateTimeISO(RELEASE_TIMEZONE_ID);
+
+		let year: number;
+		if (now.month < DECEMBER) {
+			year = now.year - 1;
+		} else {
+			year = now.year;
+		}
+
+		return this.year(year);
+	}
+
+	overwriteFiles(overwriteFiles: boolean): AocClientBuilder {
+		this._overwriteFiles = overwriteFiles;
+		return this;
+	}
+}
+
 export class AocClient {
 	constructor(
 		private sessionCookie: string,
@@ -144,168 +305,6 @@ export class AocClient {
 		return ofetch<string, 'text'>(pathname, defu(options, defaultOptions));
 	}
 }
-
-export class AocClientBuilder {
-	protected _sessionCookie?: string;
-	protected _year?: number;
-	protected _day?: number;
-	protected _overwriteFiles = false;
-	protected _inputFilename = 'input';
-	protected _puzzleFilename = 'puzzle.md';
-
-	buildClient(): AocClient {
-		this.#validateBuild();
-		const localDateTime = new Temporal.PlainDate(
-			this._year,
-			DECEMBER,
-			this._day,
-		);
-		const unlockDateTime = localDateTime.toZonedDateTime(RELEASE_TIMEZONE_ID);
-		debugLog('Building client:', {
-			sessionCookie: this._sessionCookie,
-			unlockDateTime: String(unlockDateTime),
-			year: this._year,
-			day: this._day,
-			overwriteFiles: this._overwriteFiles,
-			inputFilename: this._inputFilename,
-			puzzleFilename: this._puzzleFilename,
-		});
-		return new AocClient(
-			this._sessionCookie,
-			unlockDateTime,
-			this._year,
-			this._day,
-			this._overwriteFiles,
-			this._inputFilename,
-			this._puzzleFilename,
-		);
-	}
-
-	#validateBuild(): asserts this is this & {
-		_sessionCookie: string;
-		_year: number;
-		_day: number;
-	} {
-		for (const field of ['_sessionCookie', '_year', '_day'] as const) {
-			if (typeof this[field] === 'undefined') {
-				throw new Error(
-					`Failed to create client due to missing field: ${field}`,
-				);
-			}
-		}
-	}
-
-	getSessionCookieFromDefaultLocations(): AocClientBuilder {
-		const cookie = process.env[SESSION_COOKIE_ENV_VAR];
-		if (typeof cookie === 'string') {
-			if (cookie !== '') {
-				debugLog(
-					`🍪 Loading session cookie from '${SESSION_COOKIE_ENV_VAR}' environment variable`,
-				);
-
-				return this.setSessionCookie(cookie);
-			}
-
-			consola.warn(
-				`🍪 Environment variable '${SESSION_COOKIE_ENV_VAR} is set but it is empty, ignoring`,
-			);
-		}
-
-		return this.getSessionCookieFromFile(
-			AocClientBuilder.getDefaultSessionCookieFile(),
-		);
-	}
-
-	getSessionCookieFromFile(file: string): AocClientBuilder {
-		debugLog(`🍪 Loading session cookie from ${file}`);
-		try {
-			this._sessionCookie = readFileSync(file, { encoding: 'utf-8' }).trim();
-		} catch (error) {
-			throw new Error(`Failed to read session cookie from ${file}`, {
-				cause: error,
-			});
-		}
-		return this;
-	}
-
-	static getDefaultSessionCookieFile(): string {
-		const paths = envPaths('advent-of-code', { suffix: '' });
-		return join(paths.config, SESSION_COOKIE_FILE);
-	}
-
-	setSessionCookie(sessionCookie: string): AocClientBuilder {
-		debugLog({ sessionCookie });
-		if (!/^[0-9a-fA-F]+$/.test(sessionCookie)) {
-			throw new Error('Invalid session cookie');
-		}
-
-		this._sessionCookie = sessionCookie;
-
-		return this;
-	}
-
-	year(year: number): AocClientBuilder {
-		if (year < FIRST_EVENT_YEAR || !Number.isInteger(year)) {
-			throw new Error(`${year} is not a valid Advent of Code year`);
-		}
-
-		this._year = year;
-		return this;
-	}
-
-	day(day: number): AocClientBuilder {
-		if (
-			!Array(LAST_PUZZLE_DAY)
-				.fill(0)
-				.map((_, i) => i + FIRST_PUZZLE_DAY)
-				.includes(day)
-		) {
-			throw new Error(`${day} is not a valid Advent of Code day`);
-		}
-
-		this._day = day;
-		return this;
-	}
-
-	latestPuzzleDay(): AocClientBuilder {
-		if (typeof this._year === 'undefined') {
-			this.latestEventYear();
-		}
-
-		const eventYear = this._year;
-		const now = Temporal.Now.zonedDateTimeISO(RELEASE_TIMEZONE_ID);
-
-		if (now.year === eventYear && now.month === DECEMBER) {
-			if (now.day < LAST_PUZZLE_DAY) {
-				return this.day(now.day);
-			}
-			return this.day(LAST_PUZZLE_DAY);
-		}
-		if (now.year < (eventYear as number)) {
-			return this.day(LAST_PUZZLE_DAY);
-		}
-		return this.day(FIRST_PUZZLE_DAY);
-	}
-
-	latestEventYear(): AocClientBuilder {
-		const now = Temporal.Now.zonedDateTimeISO(RELEASE_TIMEZONE_ID);
-
-		let year: number;
-		if (now.month < DECEMBER) {
-			year = now.year - 1;
-		} else {
-			year = now.year;
-		}
-
-		return this.year(year);
-	}
-
-	overwriteFiles(overwrite: boolean): AocClientBuilder {
-		this._overwriteFiles = overwrite;
-		return this;
-	}
-}
-
 function saveFile(options: {
 	path: string;
 	contents: string;
