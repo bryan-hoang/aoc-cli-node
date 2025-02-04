@@ -28,4 +28,4 @@ catalog:
   typescript: ^5.7.2
   unbuild: ^3.0.1
   unplugin-purge-polyfills: ^0.0.7
-  vitest: ^2.1.8
+  vitest: ^2.1.9
