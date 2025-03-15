@@ -29,7 +29,7 @@
 		"typescript": "catalog:",
 		"vitest": "catalog:"
 	},
-	"packageManager": "pnpm@10.6.1",
+	"packageManager": "pnpm@10.6.3",
 	"pnpm": {
 		"onlyBuiltDependencies": [
 			"esbuild"
