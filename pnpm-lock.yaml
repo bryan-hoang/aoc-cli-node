@@ -36,9 +36,6 @@ catalogs:
     citty:
       specifier: ^0.1.6
       version: 0.1.6
-    consola:
-      specifier: ^3.4.0
-      version: 3.4.0
     cookie-es:
       specifier: ^1.2.2
       version: 1.2.2
@@ -57,6 +54,9 @@ catalogs:
     knip:
       specifier: ^5.43.6
       version: 5.46.0
+    lint-staged:
+      specifier: ^15.4.3
+      version: 15.5.0
     ofetch:
       specifier: ^1.4.1
       version: 1.4.1
@@ -139,7 +139,7 @@ importers:
         version: 0.1.6
       consola:
         specifier: 'catalog:'
-        version: 3.4.0
+        version: 3.4.2
       debug:
         specifier: 'catalog:'
         version: 4.4.0
@@ -161,7 +161,7 @@ importers:
     dependencies:
       consola:
         specifier: 'catalog:'
-        version: 3.4.0
+        version: 3.4.2
       cookie-es:
         specifier: 'catalog:'
         version: 1.2.2
@@ -1374,8 +1374,8 @@ packages:
   confbox@0.1.8:
     resolution: {integrity: sha512-RMtmw0iFkeR4YV+fUOSucriAQNb9g8zFR52MWCtl+cCZOFRNL6zeB395vPzFhEjjn4fMxXudmELnl/KF/WrK6w==}
 
-  consola@3.4.0:
-    resolution: {integrity: sha512-EiPU8G6dQG0GFHNR8ljnZFki/8a+cQwEQ+7wpxdChl02Q8HXlwEZWD5lqAF8vC2sEC3Tehr8hy7vErz88LHyUA==}
+  consola@3.4.2:
+    resolution: {integrity: sha512-5IKcdX0nnYavi6G7TtOhwkYzyjfJlatbjMjuLSfE2kYT5pMDOilZ4OvMhi637CcDICTmz3wARPoyhqyX1Y+XvA==}
     engines: {node: ^14.18.0 || >=16.10.0}
 
   convert-source-map@2.0.0:
@@ -3626,7 +3626,7 @@ snapshots:
       '@parcel/watcher': 2.5.1
       c12: 3.0.2
       citty: 0.1.6
-      consola: 3.4.0
+      consola: 3.4.2
       defu: 6.1.4
       destr: 2.0.3
       didyoumean2: 7.0.4
@@ -3734,7 +3734,7 @@ snapshots:
 
   citty@0.1.6:
     dependencies:
-      consola: 3.4.0
+      consola: 3.4.2
 
   cjs-module-lexer@1.4.3: {}
 
@@ -3795,7 +3795,7 @@ snapshots:
 
   confbox@0.1.8: {}
 
-  consola@3.4.0: {}
+  consola@3.4.2: {}
 
   convert-source-map@2.0.0: {}
 
@@ -4121,7 +4121,7 @@ snapshots:
   giget@2.0.0:
     dependencies:
       citty: 0.1.6
-      consola: 3.4.0
+      consola: 3.4.2
       defu: 6.1.4
       node-fetch-native: 1.6.6
       nypm: 0.6.0
@@ -4426,7 +4426,7 @@ snapshots:
   nypm@0.6.0:
     dependencies:
       citty: 0.1.6
-      consola: 3.4.0
+      consola: 3.4.2
       pathe: 2.0.3
       pkg-types: 2.0.0
       tinyexec: 0.3.2
@@ -4988,7 +4988,7 @@ snapshots:
       '@rollup/plugin-replace': 6.0.2(rollup@4.34.2)
       '@rollup/pluginutils': 5.1.4(rollup@4.34.2)
       citty: 0.1.6
-      consola: 3.4.0
+      consola: 3.4.2
       defu: 6.1.4
       esbuild: 0.24.2
       hookable: 5.5.3
