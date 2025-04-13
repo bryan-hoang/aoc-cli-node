@@ -57,6 +57,9 @@ catalogs:
     knip:
       specifier: ^5.43.6
       version: 5.50.2
+    lint-staged:
+      specifier: ^15.4.3
+      version: 15.5.1
     ofetch:
       specifier: ^1.4.1
       version: 1.4.1
