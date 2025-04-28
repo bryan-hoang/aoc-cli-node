@@ -24,6 +24,9 @@ catalogs:
     '@types/debug':
       specifier: ^4.1.12
       version: 4.1.12
+    '@types/node':
+      specifier: ^22.13.1
+      version: 22.15.2
     '@types/turndown':
       specifier: ^5.0.5
       version: 5.0.5
