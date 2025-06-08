@@ -24,6 +24,9 @@ catalogs:
     '@types/debug':
       specifier: ^4.1.12
       version: 4.1.12
+    '@types/node':
+      specifier: ^22.13.1
+      version: 22.15.30
     '@types/turndown':
       specifier: ^5.0.5
       version: 5.0.5
@@ -37,8 +40,8 @@ catalogs:
       specifier: ^3.4.0
       version: 3.4.2
     cookie-es:
-      specifier: ^1.2.2
-      version: 1.2.2
+      specifier: ^2.0.0
+      version: 2.0.0
     debug:
       specifier: ^4.4.0
       version: 4.4.0
@@ -164,7 +167,7 @@ importers:
         version: 3.4.2
       cookie-es:
         specifier: 'catalog:'
-        version: 1.2.2
+        version: 2.0.0
       debug:
         specifier: 'catalog:'
         version: 4.4.0
@@ -1359,8 +1362,8 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  cookie-es@1.2.2:
-    resolution: {integrity: sha512-+W7VmiVINB+ywl1HGXJXmrqkOhpKrIiVZV6tQuV54ZyQC7MMuBt81Vc336GMLoHBq5hV/F9eXgt5Mnx0Rha5Fg==}
+  cookie-es@2.0.0:
+    resolution: {integrity: sha512-RAj4E421UYRgqokKUmotqAwuplYw15qtdXfY+hGzgCJ/MBjCVZcSoHK/kH9kocfjRjcDME7IiDWR/1WX1TM2Pg==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -3734,7 +3737,7 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  cookie-es@1.2.2: {}
+  cookie-es@2.0.0: {}
 
   cross-spawn@7.0.6:
     dependencies:
