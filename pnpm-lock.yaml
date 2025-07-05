@@ -42,9 +42,6 @@ catalogs:
     cookie-es:
       specifier: ^2.0.0
       version: 2.0.0
-    debug:
-      specifier: ^4.4.0
-      version: 4.4.0
     defu:
       specifier: ^6.1.4
       version: 6.1.4
@@ -145,7 +142,7 @@ importers:
         version: 3.4.2
       debug:
         specifier: 'catalog:'
-        version: 4.4.0
+        version: 4.4.1
     devDependencies:
       '@types/debug':
         specifier: 'catalog:'
@@ -170,7 +167,7 @@ importers:
         version: 2.0.0
       debug:
         specifier: 'catalog:'
-        version: 4.4.0
+        version: 4.4.1
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -2743,7 +2740,7 @@ snapshots:
       '@babel/traverse': 7.26.7
       '@babel/types': 7.26.7
       convert-source-map: 2.0.0
-      debug: 4.4.0
+      debug: 4.4.1
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -2816,7 +2813,7 @@ snapshots:
       '@babel/parser': 7.26.7
       '@babel/template': 7.25.9
       '@babel/types': 7.26.7
-      debug: 4.4.0
+      debug: 4.4.1
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
