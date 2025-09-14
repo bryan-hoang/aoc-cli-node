@@ -42,9 +42,6 @@ catalogs:
     cookie-es:
       specifier: ^2.0.0
       version: 2.0.0
-    debug:
-      specifier: ^4.4.0
-      version: 4.4.1
     defu:
       specifier: ^6.1.4
       version: 6.1.4
@@ -87,6 +84,9 @@ catalogs:
     unplugin-purge-polyfills:
       specifier: ^0.1.0
       version: 0.1.0
+    vitest:
+      specifier: ^3.0.5
+      version: 3.2.4
 
 importers:
 
@@ -142,7 +142,7 @@ importers:
         version: 3.4.2
       debug:
         specifier: 'catalog:'
-        version: 4.4.1
+        version: 4.4.3
     devDependencies:
       '@types/debug':
         specifier: 'catalog:'
@@ -167,7 +167,7 @@ importers:
         version: 2.0.0
       debug:
         specifier: 'catalog:'
-        version: 4.4.1
+        version: 4.4.3
       defu:
         specifier: 'catalog:'
         version: 6.1.4
@@ -1567,6 +1567,15 @@ packages:
       supports-color:
         optional: true
 
+  debug@4.4.3:
+    resolution: {integrity: sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA==}
+    engines: {node: '>=6.0'}
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
+
   deep-eql@5.0.2:
     resolution: {integrity: sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q==}
     engines: {node: '>=6'}
@@ -2894,7 +2903,7 @@ snapshots:
       '@babel/traverse': 7.26.7
       '@babel/types': 7.26.7
       convert-source-map: 2.0.0
-      debug: 4.4.1
+      debug: 4.4.3
       gensync: 1.0.0-beta.2
       json5: 2.2.3
       semver: 6.3.1
@@ -2969,7 +2978,7 @@ snapshots:
       '@babel/parser': 7.26.7
       '@babel/template': 7.25.9
       '@babel/types': 7.26.7
-      debug: 4.4.1
+      debug: 4.4.3
       globals: 11.12.0
     transitivePeerDependencies:
       - supports-color
@@ -4056,6 +4065,10 @@ snapshots:
       css-tree: 2.2.1
 
   debug@4.4.1:
+    dependencies:
+      ms: 2.1.3
+
+  debug@4.4.3:
     dependencies:
       ms: 2.1.3
 
