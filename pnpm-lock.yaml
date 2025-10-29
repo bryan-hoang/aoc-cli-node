@@ -24,6 +24,9 @@ catalogs:
     '@types/debug':
       specifier: ^4.1.12
       version: 4.1.12
+    '@types/node':
+      specifier: ^24.0.0
+      version: 24.9.2
     '@types/turndown':
       specifier: ^5.0.5
       version: 5.0.6
@@ -57,9 +60,6 @@ catalogs:
     lint-staged:
       specifier: ^16.0.0
       version: 16.2.6
-    ofetch:
-      specifier: ^1.4.1
-      version: 1.4.1
     pathe:
       specifier: ^2.0.2
       version: 2.0.3
@@ -176,7 +176,7 @@ importers:
         version: 3.0.0
       ofetch:
         specifier: 'catalog:'
-        version: 1.4.1
+        version: 1.5.0
       pathe:
         specifier: 'catalog:'
         version: 2.0.3
@@ -2078,6 +2078,9 @@ packages:
 
   ofetch@1.4.1:
     resolution: {integrity: sha512-QZj2DfGplQAr2oj9KzceK9Hwz6Whxazmn85yYeVuS3u9XTMOGMRx0kO95MQ+vLsj/S/NwBDMMLU5hpxvI6Tklw==}
+
+  ofetch@1.5.0:
+    resolution: {integrity: sha512-A7llJ7eZyziA5xq9//3ZurA8OhFqtS99K5/V1sLBJ5j137CM/OAjlbA/TEJXBuOWwOfLqih+oH5U3ran4za1FQ==}
 
   ohash@2.0.11:
     resolution: {integrity: sha512-RdR9FQrFwNBNXAr4GixM8YaRZRJ5PUWbKYbE5eOsrwAjJW0q2REGcf79oYPsLyskQCZG1PLN+S/K1V00joZAoQ==}
@@ -4517,6 +4520,12 @@ snapshots:
       destr: 2.0.3
       node-fetch-native: 1.6.4
       ufo: 1.5.4
+
+  ofetch@1.5.0:
+    dependencies:
+      destr: 2.0.5
+      node-fetch-native: 1.6.7
+      ufo: 1.6.1
 
   ohash@2.0.11: {}
 
