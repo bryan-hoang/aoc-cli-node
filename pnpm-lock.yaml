@@ -18,9 +18,6 @@ catalogs:
     '@total-typescript/tsconfig':
       specifier: ^1.0.4
       version: 1.0.4
-    '@tsconfig/strictest':
-      specifier: ^2.0.5
-      version: 2.0.7
     '@types/debug':
       specifier: ^4.1.12
       version: 4.1.12
@@ -54,6 +51,9 @@ catalogs:
     husky:
       specifier: ^9.1.7
       version: 9.1.7
+    knip:
+      specifier: ^5.43.6
+      version: 5.69.1
     lint-staged:
       specifier: ^16.0.0
       version: 16.2.6
@@ -103,7 +103,7 @@ importers:
         version: 1.0.4
       '@tsconfig/strictest':
         specifier: 'catalog:'
-        version: 2.0.7
+        version: 2.0.8
       '@types/node':
         specifier: 'catalog:'
         version: 24.10.1
@@ -1235,8 +1235,8 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
-  '@tsconfig/strictest@2.0.7':
-    resolution: {integrity: sha512-lG1bXQloBVvQXasPBZSBaWbs7GNW4txZMYs7XMUVzM0s4seCbJACYBPFIRpGNVD3gC8gndK00AZON1uBrJt4Fw==}
+  '@tsconfig/strictest@2.0.8':
+    resolution: {integrity: sha512-XnQ7vNz5HRN0r88GYf1J9JJjqtZPiHt2woGJOo2dYqyHGGcd6OLGqSlBB6p1j9mpzja6Oe5BoPqWmeDx6X9rLw==}
 
   '@tybys/wasm-util@0.10.1':
     resolution: {integrity: sha512-9tTaPJLSiejZKx+Bmog4uSubteqTvFrVrURwkmHixBo0G4seD0zUxp98E1DzUBJxLQ3NPwXrGKDiVjwx/DpPsg==}
@@ -3651,7 +3651,7 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
-  '@tsconfig/strictest@2.0.7': {}
+  '@tsconfig/strictest@2.0.8': {}
 
   '@tybys/wasm-util@0.10.1':
     dependencies:
