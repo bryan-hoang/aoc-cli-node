@@ -79,13 +79,13 @@ npm install @bryan-hoang/aoc-client
 yarn add @bryan-hoang/aoc-client
 
 # pnpm
-pnpm install @bryan-hoang/aoc-client
+pnpm add @bryan-hoang/aoc-client
 
 # bun
 bun install @bryan-hoang/aoc-client
 
 # deno
-deno install @bryan-hoang/aoc-client
+deno install npm:@bryan-hoang/aoc-client
 ```
 
 <!-- /automd -->
@@ -131,7 +131,7 @@ import { AocClientBuilder, AocClient } from "@bryan-hoang/aoc-client";
 const { AocClientBuilder, AocClient } = require("@bryan-hoang/aoc-client");
 ```
 
-**CDN** (Deno, Bun and Browsers)
+**CDN** (Deno and Browsers)
 
 ```js
 import {
@@ -148,13 +148,23 @@ import {
 
 [:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L26)
 
+### Static Methods
+
+- [getDefaultSessionCookieFile](#gear-getdefaultsessioncookiefile)
+
+#### :gear: getDefaultSessionCookieFile
+
+| Method | Type |
+| ---------- | ---------- |
+| `getDefaultSessionCookieFile` | `() => string` |
+
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L109)
+
 ### Methods
 
 - [buildClient](#gear-buildclient)
-- [#validateBuild](#gear-#validatebuild)
 - [getSessionCookieFromDefaultLocations](#gear-getsessioncookiefromdefaultlocations)
 - [getSessionCookieFromFile](#gear-getsessioncookiefromfile)
-- [getDefaultSessionCookieFile](#gear-getdefaultsessioncookiefile)
 - [sessionCookie](#gear-sessioncookie)
 - [year](#gear-year)
 - [day](#gear-day)
@@ -169,14 +179,6 @@ import {
 | `buildClient` | `() => AocClient` |
 
 [:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L34)
-
-#### :gear: #validateBuild
-
-| Method | Type |
-| ---------- | ---------- |
-| `#validateBuild` | `() => asserts this is this and { _sessionCookie: string; _year: number; _day: number; }` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L62)
 
 #### :gear: getSessionCookieFromDefaultLocations
 
@@ -193,14 +195,6 @@ import {
 | `getSessionCookieFromFile` | `(file: string) => AocClientBuilder` |
 
 [:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L97)
-
-#### :gear: getDefaultSessionCookieFile
-
-| Method | Type |
-| ---------- | ---------- |
-| `getDefaultSessionCookieFile` | `() => string` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L109)
 
 #### :gear: sessionCookie
 
@@ -250,16 +244,13 @@ import {
 
 [:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L181)
 
-
 ## :factory: AocClient
 
 [:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L187)
 
-### Methods
+### Static Methods
 
 - [getBuilder](#gear-getbuilder)
-- [ensureDayUnlocked](#gear-ensuredayunlocked)
-- [isDayUnlocked](#gear-isdayunlocked)
 
 #### :gear: getBuilder
 
@@ -268,6 +259,11 @@ import {
 | `getBuilder` | `() => AocClientBuilder` |
 
 [:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L198)
+
+### Methods
+
+- [ensureDayUnlocked](#gear-ensuredayunlocked)
+- [isDayUnlocked](#gear-isdayunlocked)
 
 #### :gear: ensureDayUnlocked
 
@@ -284,7 +280,6 @@ import {
 | `isDayUnlocked` | `() => boolean` |
 
 [:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L253)
-
 
 <!-- TSDOC_END -->
 

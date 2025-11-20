@@ -9,7 +9,9 @@
 		"declaration": true,
 		"isolatedDeclarations": true,
 		"noPropertyAccessFromIndexSignature": false,
-		"types": ["node", "vitest/importMeta"]
+		"types": ["node", "vitest/importMeta"],
+		"skipLibCheck": true,
+		"esModuleInterop": true
 	},
 	"exclude": ["**/dist/**", "packages/aoc-cli/bin/aoc.js"]
 }

@@ -4,4 +4,5 @@ export default {
 		() => 'pnpm run lint:knip',
 	],
 	'*.{ts,md}': ['pnpm run build:docs'],
+	'*.ts': [() => 'pnpm run typecheck'],
 };

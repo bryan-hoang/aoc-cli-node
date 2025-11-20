@@ -40,13 +40,13 @@ npm install @bryan-hoang/aoc-client
 yarn add @bryan-hoang/aoc-client
 
 # pnpm
-pnpm install @bryan-hoang/aoc-client
+pnpm add @bryan-hoang/aoc-client
 
 # bun
 bun install @bryan-hoang/aoc-client
 
 # deno
-deno install @bryan-hoang/aoc-client
+deno install npm:@bryan-hoang/aoc-client
 ```
 
 <!-- /automd -->
@@ -69,7 +69,7 @@ import { AocClientBuilder, AocClient } from "@bryan-hoang/aoc-client";
 const { AocClientBuilder, AocClient } = require("@bryan-hoang/aoc-client");
 ```
 
-**CDN** (Deno, Bun and Browsers)
+**CDN** (Deno and Browsers)
 
 ```js
 import {
@@ -86,13 +86,21 @@ API:
 
 ## :factory: AocClientBuilder
 
+### Static Methods
+
+- [getDefaultSessionCookieFile](#gear-getdefaultsessioncookiefile)
+
+#### :gear: getDefaultSessionCookieFile
+
+| Method | Type |
+| ---------- | ---------- |
+| `getDefaultSessionCookieFile` | `() => string` |
+
 ### Methods
 
 - [buildClient](#gear-buildclient)
-- [#validateBuild](#gear-#validatebuild)
 - [getSessionCookieFromDefaultLocations](#gear-getsessioncookiefromdefaultlocations)
 - [getSessionCookieFromFile](#gear-getsessioncookiefromfile)
-- [getDefaultSessionCookieFile](#gear-getdefaultsessioncookiefile)
 - [sessionCookie](#gear-sessioncookie)
 - [year](#gear-year)
 - [day](#gear-day)
@@ -106,12 +114,6 @@ API:
 | ---------- | ---------- |
 | `buildClient` | `() => AocClient` |
 
-#### :gear: #validateBuild
-
-| Method | Type |
-| ---------- | ---------- |
-| `#validateBuild` | `() => asserts this is this and { _sessionCookie: string; _year: number; _day: number; }` |
-
 #### :gear: getSessionCookieFromDefaultLocations
 
 | Method | Type |
@@ -123,12 +125,6 @@ API:
 | Method | Type |
 | ---------- | ---------- |
 | `getSessionCookieFromFile` | `(file: string) => AocClientBuilder` |
-
-#### :gear: getDefaultSessionCookieFile
-
-| Method | Type |
-| ---------- | ---------- |
-| `getDefaultSessionCookieFile` | `() => string` |
 
 #### :gear: sessionCookie
 
@@ -166,20 +162,22 @@ API:
 | ---------- | ---------- |
 | `overwriteFiles` | `(overwriteFiles: boolean) => AocClientBuilder` |
 
-
 ## :factory: AocClient
 
-### Methods
+### Static Methods
 
 - [getBuilder](#gear-getbuilder)
-- [ensureDayUnlocked](#gear-ensuredayunlocked)
-- [isDayUnlocked](#gear-isdayunlocked)
 
 #### :gear: getBuilder
 
 | Method | Type |
 | ---------- | ---------- |
 | `getBuilder` | `() => AocClientBuilder` |
+
+### Methods
+
+- [ensureDayUnlocked](#gear-ensuredayunlocked)
+- [isDayUnlocked](#gear-isdayunlocked)
 
 #### :gear: ensureDayUnlocked
 
@@ -192,7 +190,6 @@ API:
 | Method | Type |
 | ---------- | ---------- |
 | `isDayUnlocked` | `() => boolean` |
-
 
 <!-- TSDOC_END -->
 

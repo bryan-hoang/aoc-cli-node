@@ -50,7 +50,6 @@
 		"@types/debug": "catalog:",
 		"@types/turndown": "catalog:",
 		"unbuild": "catalog:",
-		"unplugin-purge-polyfills": "catalog:",
 		"vitest": "catalog:"
 	},
 	"publishConfig": {
