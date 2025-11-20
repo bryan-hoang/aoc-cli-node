@@ -1,5 +1,6 @@
 import { type ArgsDef, type CommandDef, defineCommand } from 'citty';
-import aocCli from '../package.json' assert { type: 'json' };
+import aocCli from '../package.json' with { type: 'json' };
+
 import { commands } from './commands';
 import { sharedArgs } from './commands/_shared';
 

@@ -70,9 +70,9 @@ const download: CommandDef<typeof args> = defineCommand({
 				throw error;
 			}
 
-			// @ts-ignore
+			// @ts-expect-error
 			if (error.code === 'EEXIST') {
-				// @ts-ignore
+				// @ts-expect-error
 				consola.error(`${error.path} already exists, not overwriting`);
 				consola.info('Consider passing the -o|--overwrite option');
 				process.exit(1);

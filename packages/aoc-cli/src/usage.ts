@@ -52,7 +52,7 @@ async function renderUsage<T extends ArgsDef = ArgsDef>(
 							', ',
 						)) +
 				(arg.type === 'string' && arg.valueHint ? ` <${arg.valueHint}>` : '') +
-				// @ts-ignore
+				// @ts-expect-error
 				(arg.type === 'enum' && arg.options
 					? // @ts-ignore
 						`=<${arg.options.join('|')}>`
@@ -80,7 +80,7 @@ async function renderUsage<T extends ArgsDef = ArgsDef>(
 		for (const [name, sub] of Object.entries(subCommands)) {
 			const subCmd = await resolveValue(sub);
 			const meta = await resolveValue(subCmd?.meta);
-			// @ts-ignore
+			// @ts-expect-error
 			if (meta?.hidden) {
 				continue;
 			}

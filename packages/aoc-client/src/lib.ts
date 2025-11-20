@@ -8,7 +8,8 @@ import { join } from 'pathe';
 import { Temporal } from 'temporal-polyfill';
 import TurndownService from 'turndown';
 import { createRegExp } from 'type-level-regexp';
-import aocClient from '../package.json' assert { type: 'json' };
+import aocClient from '../package.json' with { type: 'json' };
+
 import { debugLog } from './debug';
 
 const FIRST_EVENT_YEAR = 2015;
