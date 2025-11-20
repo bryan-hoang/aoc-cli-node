@@ -35,6 +35,10 @@
 			"@biomejs/biome",
 			"@parcel/watcher",
 			"esbuild"
-		]
+		],
+		"overrides": {
+			"@babel/helpers@<7.26.10": ">=7.26.10",
+			"esbuild@<=0.24.2": ">=0.25.0"
+		}
 	}
 }
