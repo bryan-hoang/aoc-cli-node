@@ -41,8 +41,7 @@
 	"devDependencies": {
 		"@types/debug": "catalog:",
 		"typescript": "catalog:",
-		"unbuild": "catalog:",
-		"unplugin-purge-polyfills": "catalog:"
+		"unbuild": "catalog:"
 	},
 	"publishConfig": {
 		"access": "public"

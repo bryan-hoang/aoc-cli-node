@@ -84,9 +84,6 @@ catalogs:
     unbuild:
       specifier: ^3.6.1
       version: 3.6.1
-    unplugin-purge-polyfills:
-      specifier: ^0.1.0
-      version: 0.1.0
     vitest:
       specifier: ^4.0.0
       version: 4.0.10
@@ -160,9 +157,6 @@ importers:
       unbuild:
         specifier: 'catalog:'
         version: 3.6.1(typescript@5.9.3)
-      unplugin-purge-polyfills:
-        specifier: 'catalog:'
-        version: 0.1.0
 
   packages/aoc-client:
     dependencies:
@@ -209,9 +203,6 @@ importers:
       unbuild:
         specifier: 'catalog:'
         version: 3.6.1(typescript@5.9.3)
-      unplugin-purge-polyfills:
-        specifier: 'catalog:'
-        version: 0.1.0
       vitest:
         specifier: 'catalog:'
         version: 4.0.10(@types/debug@4.1.12)(@types/node@24.10.1)(jiti@2.6.1)(yaml@2.8.1)
@@ -2238,13 +2229,6 @@ packages:
     resolution: {integrity: sha512-rBJeI5CXAlmy1pV+617WB9J63U6XcazHHF2f2dbJix4XzpUF0RS3Zbj0FGIOCAva5P/d/GBOYaACQ1w+0azUkg==}
     engines: {node: '>= 4.0.0'}
 
-  unplugin-purge-polyfills@0.1.0:
-    resolution: {integrity: sha512-dHahgAhuzaHZHU65oY7BU24vqH/AtcXppdH1B1SmrBeglyX7NOBtkryjp2F8mOD4tL2RVxfAc41JRqRKTAeAkA==}
-
-  unplugin@2.3.5:
-    resolution: {integrity: sha512-RyWSb5AHmGtjjNQ6gIlA67sHOsWpsbWpwDokLwTcejVdOjEkJZh7QKu14J00gDDVSh8kGH4KYC/TNBceXFZhtw==}
-    engines: {node: '>=18.12.0'}
-
   untyped@2.0.0:
     resolution: {integrity: sha512-nwNCjxJTjNuLCgFr42fEak5OcLuB3ecca+9ksPFNvtfYSLpjf+iJqSIaSnIile6ZPbKYxI5k2AfXqeopGudK/g==}
     hasBin: true
@@ -2339,9 +2323,6 @@ packages:
   walk-up-path@4.0.0:
     resolution: {integrity: sha512-3hu+tD8YzSLGuFYtPRb48vdhKMi0KQV5sn+uWr8+7dMEq/2G/dtLrdDinkLjqq5TIbIBjYJ4Ax/n3YiaW7QM8A==}
     engines: {node: 20 || >=22}
-
-  webpack-virtual-modules@0.6.2:
-    resolution: {integrity: sha512-66/V2i5hQanC51vBQKPH4aI8NMAcBW59FVBs+rC7eGHupMyfn34q7rZIE+ETlJ+XTevqfUhVVBgSUNSW2flEUQ==}
 
   which@2.0.2:
     resolution: {integrity: sha512-BLI3Tl1TW3Pvl70l3yq3Y64i+awpwXqsGBYWkkqMtnbXgrMD+yj7rhW0kuEDxzJaYXGjEW5ogapKNMEKNMjibA==}
@@ -4304,19 +4285,6 @@ snapshots:
 
   universalify@0.1.2: {}
 
-  unplugin-purge-polyfills@0.1.0:
-    dependencies:
-      defu: 6.1.4
-      magic-string: 0.30.21
-      mlly: 1.8.0
-      unplugin: 2.3.5
-
-  unplugin@2.3.5:
-    dependencies:
-      acorn: 8.15.0
-      picomatch: 4.0.3
-      webpack-virtual-modules: 0.6.2
-
   untyped@2.0.0:
     dependencies:
       citty: 0.1.6
@@ -4389,8 +4357,6 @@ snapshots:
       - yaml
 
   walk-up-path@4.0.0: {}
-
-  webpack-virtual-modules@0.6.2: {}
 
   which@2.0.2:
     dependencies:
