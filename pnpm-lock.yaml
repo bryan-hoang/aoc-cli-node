@@ -24,6 +24,9 @@ catalogs:
     '@types/debug':
       specifier: ^4.1.12
       version: 4.1.12
+    '@types/node':
+      specifier: ^24.0.0
+      version: 24.10.2
     '@types/turndown':
       specifier: ^5.0.5
       version: 5.0.6
@@ -51,9 +54,6 @@ catalogs:
     husky:
       specifier: ^9.1.7
       version: 9.1.7
-    knip:
-      specifier: ^5.43.6
-      version: 5.72.0
     lint-staged:
       specifier: ^16.0.0
       version: 16.2.7
@@ -116,7 +116,7 @@ importers:
         version: 9.1.7
       knip:
         specifier: 'catalog:'
-        version: 5.72.0(@types/node@24.10.2)(typescript@5.9.3)
+        version: 5.73.0(@types/node@24.10.2)(typescript@5.9.3)
       lint-staged:
         specifier: 'catalog:'
         version: 16.2.7
@@ -1609,8 +1609,8 @@ packages:
   jsonfile@4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
 
-  knip@5.72.0:
-    resolution: {integrity: sha512-rlyoXI8FcggNtM/QXd/GW0sbsYvNuA/zPXt7bsuVi6kVQogY2PDCr81bPpzNnl0CP8AkFm2Z2plVeL5QQSis2w==}
+  knip@5.73.0:
+    resolution: {integrity: sha512-L6zy2R/aAICy+lQWwdjl2TUY/kv2mqjkyKIL5+F4cUcn+3TQHjqzHen+N43S4oi4FyQ2qPJMNIODusr1vicTUA==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -3734,7 +3734,7 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-  knip@5.72.0(@types/node@24.10.2)(typescript@5.9.3):
+  knip@5.73.0(@types/node@24.10.2)(typescript@5.9.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.10.2
