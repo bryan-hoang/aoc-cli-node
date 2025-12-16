@@ -9,6 +9,9 @@ catalogs:
     '@arethetypeswrong/cli':
       specifier: ^0.18.0
       version: 0.18.2
+    '@biomejs/biome':
+      specifier: ^2.3.6
+      version: 2.3.9
     '@changesets/cli':
       specifier: ^2.27.12
       version: 2.29.8
@@ -51,9 +54,6 @@ catalogs:
     husky:
       specifier: ^9.1.7
       version: 9.1.7
-    knip:
-      specifier: ^5.43.6
-      version: 5.73.4
     lint-staged:
       specifier: ^16.0.0
       version: 16.2.7
@@ -116,7 +116,7 @@ importers:
         version: 9.1.7
       knip:
         specifier: 'catalog:'
-        version: 5.73.4(@types/node@24.10.4)(typescript@5.9.3)
+        version: 5.74.0(@types/node@24.10.4)(typescript@5.9.3)
       lint-staged:
         specifier: 'catalog:'
         version: 16.2.7
@@ -1609,8 +1609,8 @@ packages:
   jsonfile@4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
 
-  knip@5.73.4:
-    resolution: {integrity: sha512-q0DDgqsRMa4z2IMEPEblns0igitG8Fu7exkvEgQx1QMLKEqSvcvKP9fMk+C1Ehy+Ux6oayl6zfAEGt6DvFtidw==}
+  knip@5.74.0:
+    resolution: {integrity: sha512-xSG+vn403ONBkQtSBf1+kcE8ulzyQHLWIDQAxvu3W7HnM0jZJqVUPlK5w6FZNUyKnp+4FInsYQW77eapDpmcNA==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -2447,8 +2447,8 @@ packages:
     resolution: {integrity: sha512-D1mvvtDG0L5ft/jGWkLpG1+m0eQxOfaBvTNELraWj22wSVUMWxZUvYgJYcKh6jGGIkJFhH4IZPQhR4TKpc8mBw==}
     engines: {node: '>=10'}
 
-  zod@4.1.13:
-    resolution: {integrity: sha512-AvvthqfqrAhNH9dnfmrfKzX5upOdjUVJYFqNSlkmGf64gRaTzlPwz99IHYnVs28qYAybvAlBV+H7pn0saFY4Ig==}
+  zod@4.2.1:
+    resolution: {integrity: sha512-0wZ1IRqGGhMP76gLqz8EyfBXKk0J2qo2+H3fi4mcUP/KtTocoX08nmIAHl1Z2kJIZbZee8KOpBCSNPRgauucjw==}
 
 snapshots:
 
@@ -3734,7 +3734,7 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-  knip@5.73.4(@types/node@24.10.4)(typescript@5.9.3):
+  knip@5.74.0(@types/node@24.10.4)(typescript@5.9.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.10.4
@@ -3749,7 +3749,7 @@ snapshots:
       smol-toml: 1.5.2
       strip-json-comments: 5.0.3
       typescript: 5.9.3
-      zod: 4.1.13
+      zod: 4.2.1
 
   knitwork@1.2.0: {}
 
@@ -4579,4 +4579,4 @@ snapshots:
       y18n: 5.0.8
       yargs-parser: 20.2.9
 
-  zod@4.1.13: {}
+  zod@4.2.1: {}
