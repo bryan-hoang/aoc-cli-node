@@ -9,6 +9,9 @@ catalogs:
     '@arethetypeswrong/cli':
       specifier: ^0.18.0
       version: 0.18.2
+    '@biomejs/biome':
+      specifier: ^2.3.6
+      version: 2.3.12
     '@changesets/cli':
       specifier: ^2.27.12
       version: 2.29.8
@@ -46,8 +49,8 @@ catalogs:
       specifier: ^6.1.4
       version: 6.1.4
     env-paths:
-      specifier: ^3.0.0
-      version: 3.0.0
+      specifier: ^4.0.0
+      version: 4.0.0
     husky:
       specifier: ^9.1.7
       version: 9.1.7
@@ -171,7 +174,7 @@ importers:
         version: 6.1.4
       env-paths:
         specifier: 'catalog:'
-        version: 3.0.0
+        version: 4.0.0
       ofetch:
         specifier: 'catalog:'
         version: 1.5.1
@@ -1558,9 +1561,9 @@ packages:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==}
     engines: {node: '>=0.12'}
 
-  env-paths@3.0.0:
-    resolution: {integrity: sha512-dtJUTepzMW3Lm/NPxRf3wP4642UWhjL2sQxc+ym2YMj1m/H2zDNQOlezafzkHwn6sMstjHTwG6iQQsctDW/b1A==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+  env-paths@4.0.0:
+    resolution: {integrity: sha512-pxP8eL2SwwaTRi/KHYwLYXinDs7gL3jxFcBYmEdYfZmZXbaVDvdppd0XBU8qVz03rDfKZMXg1omHCbsJjZrMsw==}
+    engines: {node: '>=20'}
 
   environment@1.1.0:
     resolution: {integrity: sha512-xUtoPkMggbz0MPyPiIWr1Kp4aeWJjDZ6SMvURhimjdZgsRuDplF5/s9hcgGhyXMhs+6vpnuoiZ2kFiu3FMnS8Q==}
@@ -1751,6 +1754,10 @@ packages:
 
   is-reference@1.2.1:
     resolution: {integrity: sha512-U82MsXXiFIrjCK4otLT+o2NA2Cd2g5MLoOVXUZjIOhLurrRxpEXzI8O0KZHr3IjLvlAH1kTPYSuqer5T9ZVBKQ==}
+
+  is-safe-filename@0.1.0:
+    resolution: {integrity: sha512-sHJhnOtbNZw/t54s31NnbkkcwfHzTOpgi5n1bnlLu+40p/gU3ZHu+JX8CjIsnWUQkqWtvmNpJqCYUyaaKSPLZw==}
+    engines: {node: '>=20'}
 
   is-subdir@1.2.0:
     resolution: {integrity: sha512-2AT6j+gXe/1ueqbW6fLZJiIw3F8iXGJtt0yDrZaBhAZEG1raiTxKWU+IPqMCzQAXOUCKdA4UDMgacKH25XG2Cw==}
@@ -3782,7 +3789,9 @@ snapshots:
 
   entities@4.5.0: {}
 
-  env-paths@3.0.0: {}
+  env-paths@4.0.0:
+    dependencies:
+      is-safe-filename: 0.1.0
 
   environment@1.1.0: {}
 
@@ -3997,6 +4006,8 @@ snapshots:
   is-reference@1.2.1:
     dependencies:
       '@types/estree': 1.0.8
+
+  is-safe-filename@0.1.0: {}
 
   is-subdir@1.2.0:
     dependencies:

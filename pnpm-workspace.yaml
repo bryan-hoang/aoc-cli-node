@@ -15,7 +15,7 @@ catalog:
   cookie-es: ^2.0.0
   debug: ^4.4.0
   defu: ^6.1.4
-  env-paths: ^3.0.0
+  env-paths: ^4.0.0
   husky: ^9.1.7
   knip: ^5.43.6
   lint-staged: ^16.0.0
