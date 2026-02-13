@@ -24,6 +24,9 @@ catalogs:
     '@types/debug':
       specifier: ^4.1.12
       version: 4.1.12
+    '@types/node':
+      specifier: ^24.0.0
+      version: 24.10.13
     '@types/turndown':
       specifier: ^5.0.5
       version: 5.0.6
@@ -31,8 +34,8 @@ catalogs:
       specifier: ^0.4.0
       version: 0.4.3
     citty:
-      specifier: ^0.1.6
-      version: 0.1.6
+      specifier: ^0.2.0
+      version: 0.2.0
     consola:
       specifier: ^3.4.0
       version: 3.4.2
@@ -137,7 +140,7 @@ importers:
         version: link:../aoc-client
       citty:
         specifier: 'catalog:'
-        version: 0.1.6
+        version: 0.2.0
       consola:
         specifier: 'catalog:'
         version: 3.4.2
