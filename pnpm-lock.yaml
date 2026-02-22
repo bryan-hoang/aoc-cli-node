@@ -9,6 +9,9 @@ catalogs:
     '@arethetypeswrong/cli':
       specifier: ^0.18.0
       version: 0.18.2
+    '@biomejs/biome':
+      specifier: ^2.3.6
+      version: 2.4.4
     '@changesets/cli':
       specifier: ^2.27.12
       version: 2.29.8
@@ -31,8 +34,8 @@ catalogs:
       specifier: ^0.4.0
       version: 0.4.3
     citty:
-      specifier: ^0.1.6
-      version: 0.1.6
+      specifier: ^0.2.0
+      version: 0.2.0
     consola:
       specifier: ^3.4.0
       version: 3.4.2
@@ -137,7 +140,7 @@ importers:
         version: link:../aoc-client
       citty:
         specifier: 'catalog:'
-        version: 0.1.6
+        version: 0.2.0
       consola:
         specifier: 'catalog:'
         version: 3.4.2
