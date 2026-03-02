@@ -34,8 +34,8 @@ catalogs:
       specifier: ^0.4.0
       version: 0.4.3
     citty:
-      specifier: ^0.1.6
-      version: 0.1.6
+      specifier: ^0.2.0
+      version: 0.2.0
     consola:
       specifier: ^3.4.0
       version: 3.4.2
@@ -57,6 +57,9 @@ catalogs:
     knip:
       specifier: ^5.43.6
       version: 5.85.0
+    lint-staged:
+      specifier: ^16.0.0
+      version: 16.3.1
     ofetch:
       specifier: ^1.4.1
       version: 1.5.1
@@ -137,7 +140,7 @@ importers:
         version: link:../aoc-client
       citty:
         specifier: 'catalog:'
-        version: 0.1.6
+        version: 0.2.0
       consola:
         specifier: 'catalog:'
         version: 3.4.2

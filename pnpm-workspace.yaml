@@ -10,7 +10,7 @@ catalog:
   '@types/node': ^24.0.0
   '@types/turndown': ^5.0.5
   automd: ^0.4.0
-  citty: ^0.1.6
+  citty: ^0.2.0
   consola: ^3.4.0
   cookie-es: ^2.0.0
   debug: ^4.4.0
