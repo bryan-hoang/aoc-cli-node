@@ -12,6 +12,9 @@ catalogs:
     '@biomejs/biome':
       specifier: ^2.3.6
       version: 2.4.5
+    '@changesets/cli':
+      specifier: ^2.27.12
+      version: 2.30.0
     '@total-typescript/tsconfig':
       specifier: ^1.0.4
       version: 1.0.4
@@ -54,9 +57,6 @@ catalogs:
     knip:
       specifier: ^5.43.6
       version: 5.85.0
-    lint-staged:
-      specifier: ^16.0.0
-      version: 16.3.1
     ofetch:
       specifier: ^1.4.1
       version: 1.5.1
@@ -119,7 +119,7 @@ importers:
         version: 5.85.0(@types/node@24.11.0)(typescript@5.9.3)
       lint-staged:
         specifier: 'catalog:'
-        version: 16.3.1
+        version: 16.3.2
       tsdoc-markdown:
         specifier: 'catalog:'
         version: 1.4.1(typescript@5.9.3)
@@ -1848,8 +1848,8 @@ packages:
     resolution: {integrity: sha512-/vlFKAoH5Cgt3Ie+JLhRbwOsCQePABiU3tJ1egGvyQ+33R/vcwM2Zl2QR/LzjsBeItPt3oSVXapn+m4nQDvpzw==}
     engines: {node: '>=14'}
 
-  lint-staged@16.3.1:
-    resolution: {integrity: sha512-bqvvquXzFBAlSbluugR4KXAe4XnO/QZcKVszpkBtqLWa2KEiVy8n6Xp38OeUbv/gOJOX4Vo9u5pFt/ADvbm42Q==}
+  lint-staged@16.3.2:
+    resolution: {integrity: sha512-xKqhC2AeXLwiAHXguxBjuChoTTWFC6Pees0SHPwOpwlvI3BH7ZADFPddAdN3pgo3aiKgPUx/bxE78JfUnxQnlg==}
     engines: {node: '>=20.17'}
     hasBin: true
 
@@ -4105,7 +4105,7 @@ snapshots:
 
   lilconfig@3.1.3: {}
 
-  lint-staged@16.3.1:
+  lint-staged@16.3.2:
     dependencies:
       commander: 14.0.3
       listr2: 9.0.5
