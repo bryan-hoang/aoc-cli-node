@@ -66,9 +66,6 @@ catalogs:
     pathe:
       specifier: ^2.0.2
       version: 2.0.3
-    temporal-polyfill:
-      specifier: ^0.3.0
-      version: 0.3.1
     tsdoc-markdown:
       specifier: ^1.1.1
       version: 1.4.1
@@ -84,6 +81,9 @@ catalogs:
     unbuild:
       specifier: ^3.6.1
       version: 3.6.1
+    vitest:
+      specifier: ^4.0.0
+      version: 4.1.0
 
 overrides:
   '@babel/helpers@<7.26.10': '>=7.26.10'
@@ -180,7 +180,7 @@ importers:
         version: 2.0.3
       temporal-polyfill:
         specifier: 'catalog:'
-        version: 0.3.1
+        version: 0.3.2
       turndown:
         specifier: 'catalog:'
         version: 7.2.2
@@ -2464,8 +2464,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  temporal-polyfill@0.3.1:
-    resolution: {integrity: sha512-3Ceqnjxa7nQ1VGRjehALmP9LdiJqalmoYh6o22s8skP+ZN6df1cTN/7h+p0k4v357pFsQN94gtJoxV6fqvlijA==}
+  temporal-polyfill@0.3.2:
+    resolution: {integrity: sha512-TzHthD/heRK947GNiSu3Y5gSPpeUDH34+LESnfsq8bqpFhsB79HFBX8+Z834IVX68P3EUyRPZK5bL/1fh437Eg==}
 
   temporal-spec@0.3.1:
     resolution: {integrity: sha512-B4TUhezh9knfSIMwt7RVggApDRJZo73uZdj8AacL2mZ8RP5KtLianh2MXxL06GN9ESYiIsiuoLQhgVfwe55Yhw==}
@@ -4757,7 +4757,7 @@ snapshots:
       picocolors: 1.1.1
       sax: 1.4.3
 
-  temporal-polyfill@0.3.1:
+  temporal-polyfill@0.3.2:
     dependencies:
       temporal-spec: 0.3.1
 
