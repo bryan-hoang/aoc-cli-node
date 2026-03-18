@@ -9,6 +9,9 @@ catalogs:
     '@arethetypeswrong/cli':
       specifier: ^0.18.0
       version: 0.18.2
+    '@biomejs/biome':
+      specifier: ^2.3.6
+      version: 2.4.8
     '@changesets/cli':
       specifier: ^2.27.12
       version: 2.30.0
@@ -51,9 +54,6 @@ catalogs:
     husky:
       specifier: ^9.1.7
       version: 9.1.7
-    knip:
-      specifier: ^5.43.6
-      version: 5.87.0
     lint-staged:
       specifier: ^16.0.0
       version: 16.4.0
@@ -116,7 +116,7 @@ importers:
         version: 9.1.7
       knip:
         specifier: 'catalog:'
-        version: 5.87.0(@types/node@24.12.0)(typescript@5.9.3)
+        version: 5.88.0(@types/node@24.12.0)(typescript@5.9.3)
       lint-staged:
         specifier: 'catalog:'
         version: 16.4.0
@@ -1836,8 +1836,8 @@ packages:
   jsonfile@4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
 
-  knip@5.87.0:
-    resolution: {integrity: sha512-oJBrwd4/Mt5E6817vcdQLaPpejxZTxpASauYLkp6HaT0HN1seHnpF96KEjza9O8yARvHEQ9+So9AFUjkPci7dQ==}
+  knip@5.88.0:
+    resolution: {integrity: sha512-FZjQYLYwUbVrtC3C1cKyEMMqR4K2ZlkQLZszJgF5cfDo4GUSBZAdAV0P3eyzZrkssRoghLJQA9HTQUW7G+Tc8Q==}
     engines: {node: '>=18.18.0'}
     hasBin: true
     peerDependencies:
@@ -4104,7 +4104,7 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-  knip@5.87.0(@types/node@24.12.0)(typescript@5.9.3):
+  knip@5.88.0(@types/node@24.12.0)(typescript@5.9.3):
     dependencies:
       '@nodelib/fs.walk': 1.2.8
       '@types/node': 24.12.0
