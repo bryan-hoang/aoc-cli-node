@@ -17,7 +17,7 @@ catalog:
   defu: ^6.1.4
   env-paths: ^4.0.0
   husky: ^9.1.7
-  knip: ^5.43.6
+  knip: ^6.0.0
   lint-staged: ^16.0.0
   ofetch: ^1.4.1
   pathe: ^2.0.2
