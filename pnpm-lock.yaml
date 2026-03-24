@@ -40,8 +40,8 @@ catalogs:
       specifier: ^3.4.0
       version: 3.4.2
     cookie-es:
-      specifier: ^2.0.0
-      version: 2.0.0
+      specifier: ^3.0.0
+      version: 3.0.1
     debug:
       specifier: ^4.4.0
       version: 4.4.3
@@ -84,6 +84,9 @@ catalogs:
     unbuild:
       specifier: ^3.6.1
       version: 3.6.1
+    vitest:
+      specifier: ^4.0.0
+      version: 4.1.1
 
 overrides:
   '@babel/helpers@<7.26.10': '>=7.26.10'
@@ -162,7 +165,7 @@ importers:
         version: 3.4.2
       cookie-es:
         specifier: 'catalog:'
-        version: 2.0.0
+        version: 3.0.1
       debug:
         specifier: 'catalog:'
         version: 4.4.3
@@ -1608,8 +1611,8 @@ packages:
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
 
-  cookie-es@2.0.0:
-    resolution: {integrity: sha512-RAj4E421UYRgqokKUmotqAwuplYw15qtdXfY+hGzgCJ/MBjCVZcSoHK/kH9kocfjRjcDME7IiDWR/1WX1TM2Pg==}
+  cookie-es@3.0.1:
+    resolution: {integrity: sha512-1HqK6V6Prrm7cHzmjtCzfa370ljqPQoNeWIh5NXYqWwUI2l3DZlzjHHh25ZvJIPfwkiYnCvHykE2MIJkEVD1Rg==}
 
   cross-spawn@7.0.6:
     resolution: {integrity: sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==}
@@ -3921,7 +3924,7 @@ snapshots:
 
   convert-source-map@2.0.0: {}
 
-  cookie-es@2.0.0: {}
+  cookie-es@3.0.1: {}
 
   cross-spawn@7.0.6:
     dependencies:
