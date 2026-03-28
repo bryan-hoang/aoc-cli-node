@@ -1,17 +1,14 @@
 {
-	"extends": [
-		"@tsconfig/strictest",
-		"@total-typescript/tsconfig/bundler/no-dom/library-monorepo"
-	],
+	"extends": ["@tsconfig/strictest", "@total-typescript/tsconfig/bundler/no-dom/library-monorepo"],
 	"compilerOptions": {
 		"allowJs": false,
 		"checkJs": false,
 		"declaration": true,
 		"isolatedDeclarations": true,
 		"noPropertyAccessFromIndexSignature": false,
-		"types": ["node", "vitest/importMeta"],
+		"types": ["node", "vite-plus/test/importMeta"],
 		"skipLibCheck": true,
 		"esModuleInterop": true
 	},
-	"exclude": ["**/dist/**", "packages/aoc-cli/bin/aoc.js"]
+	"exclude": ["**/dist/**", "packages/aoc-cli/bin/aoc.js", "vite.config.ts"]
 }

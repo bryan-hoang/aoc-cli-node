@@ -1,15 +1,16 @@
-import type { AocClient } from '@bryan-hoang/aoc-client';
-import { type CommandDef, defineCommand } from 'citty';
-import { sharedArgs, sharedSetup } from './_shared';
+import type { AocClient } from "@bryan-hoang/aoc-client";
+import { type CommandDef, defineCommand } from "citty";
+import { sharedArgs, sharedSetup } from "./_shared";
 
 const submitArgs = {
 	part: {
-		type: 'positional',
-		description: 'Puzzle part [possible values: 1, 2]',
+		type: "positional",
+		description: "Puzzle part [possible values: 1, 2]",
 	},
 	answer: {
-		type: 'positional',
-		description: 'Puzzle answer',
+		type: "positional",
+		description: "Puzzle answer",
+		required: true,
 	},
 } as const;
 
@@ -21,8 +22,8 @@ const args: typeof submitArgs & typeof sharedArgs = {
 const submit: CommandDef<typeof args> = defineCommand({
 	args,
 	meta: {
-		name: 'submt',
-		description: 'Submit puzzle answer',
+		name: "submt",
+		description: "Submit puzzle answer",
 	},
 	setup: sharedSetup,
 	async run({ args, data }) {

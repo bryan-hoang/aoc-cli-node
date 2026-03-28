@@ -1,8 +1,8 @@
-import { runCommand as _runCommand, runMain as _runMain } from 'citty';
+import { runCommand as _runCommand, runMain as _runMain } from "citty";
 
-import { commands } from './commands';
-import { main } from './main';
-import { showUsage } from './usage';
+import { commands } from "./commands";
+import { main } from "./main";
+import { showUsage } from "./usage";
 
 export const runMain: () => Promise<void> = () => _runMain(main, { showUsage });
 

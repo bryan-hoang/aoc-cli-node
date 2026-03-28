@@ -72,10 +72,7 @@ const { AocClientBuilder, AocClient } = require("@bryan-hoang/aoc-client");
 **CDN** (Deno and Browsers)
 
 ```js
-import {
-  AocClientBuilder,
-  AocClient,
-} from "https://esm.sh/@bryan-hoang/aoc-client";
+import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-client";
 ```
 
 <!-- /automd -->
@@ -92,8 +89,8 @@ API:
 
 #### :gear: getDefaultSessionCookieFile
 
-| Method | Type |
-| ---------- | ---------- |
+| Method                        | Type           |
+| ----------------------------- | -------------- |
 | `getDefaultSessionCookieFile` | `() => string` |
 
 ### Methods
@@ -110,56 +107,56 @@ API:
 
 #### :gear: buildClient
 
-| Method | Type |
-| ---------- | ---------- |
+| Method        | Type              |
+| ------------- | ----------------- |
 | `buildClient` | `() => AocClient` |
 
 #### :gear: getSessionCookieFromDefaultLocations
 
-| Method | Type |
-| ---------- | ---------- |
+| Method                                 | Type                     |
+| -------------------------------------- | ------------------------ |
 | `getSessionCookieFromDefaultLocations` | `() => AocClientBuilder` |
 
 #### :gear: getSessionCookieFromFile
 
-| Method | Type |
-| ---------- | ---------- |
+| Method                     | Type                                 |
+| -------------------------- | ------------------------------------ |
 | `getSessionCookieFromFile` | `(file: string) => AocClientBuilder` |
 
 #### :gear: sessionCookie
 
-| Method | Type |
-| ---------- | ---------- |
+| Method          | Type                                          |
+| --------------- | --------------------------------------------- |
 | `sessionCookie` | `(sessionCookie: string) => AocClientBuilder` |
 
 #### :gear: year
 
-| Method | Type |
-| ---------- | ---------- |
+| Method | Type                                 |
+| ------ | ------------------------------------ |
 | `year` | `(year: number) => AocClientBuilder` |
 
 #### :gear: day
 
-| Method | Type |
-| ---------- | ---------- |
-| `day` | `(day: number) => AocClientBuilder` |
+| Method | Type                                |
+| ------ | ----------------------------------- |
+| `day`  | `(day: number) => AocClientBuilder` |
 
 #### :gear: latestPuzzleDay
 
-| Method | Type |
-| ---------- | ---------- |
+| Method            | Type                     |
+| ----------------- | ------------------------ |
 | `latestPuzzleDay` | `() => AocClientBuilder` |
 
 #### :gear: latestEventYear
 
-| Method | Type |
-| ---------- | ---------- |
+| Method            | Type                     |
+| ----------------- | ------------------------ |
 | `latestEventYear` | `() => AocClientBuilder` |
 
 #### :gear: overwriteFiles
 
-| Method | Type |
-| ---------- | ---------- |
+| Method           | Type                                            |
+| ---------------- | ----------------------------------------------- |
 | `overwriteFiles` | `(overwriteFiles: boolean) => AocClientBuilder` |
 
 ## :factory: AocClient
@@ -170,8 +167,8 @@ API:
 
 #### :gear: getBuilder
 
-| Method | Type |
-| ---------- | ---------- |
+| Method       | Type                     |
+| ------------ | ------------------------ |
 | `getBuilder` | `() => AocClientBuilder` |
 
 ### Methods
@@ -181,14 +178,14 @@ API:
 
 #### :gear: ensureDayUnlocked
 
-| Method | Type |
-| ---------- | ---------- |
+| Method              | Type         |
+| ------------------- | ------------ |
 | `ensureDayUnlocked` | `() => void` |
 
 #### :gear: isDayUnlocked
 
-| Method | Type |
-| ---------- | ---------- |
+| Method          | Type            |
+| --------------- | --------------- |
 | `isDayUnlocked` | `() => boolean` |
 
 <!-- TSDOC_END -->

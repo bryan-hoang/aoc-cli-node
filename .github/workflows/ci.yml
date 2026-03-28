@@ -1,6 +1,14 @@
 name: CI
 
-on: [push, pull_request]
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+  push:
+    branches:
+      - main
 
 permissions:
   # To fetch code (actions/checkout)
@@ -18,28 +26,23 @@ jobs:
       matrix:
         # See supported Node.js release schedule at
         # https://nodejs.org/en/about/previous-releases
-        node-version: [lts/*, latest]
+        node-version: [lts]
 
     steps:
       - uses: actions/checkout@v6
         with:
           persist-credentials: false
-      - name: Install pnpm
-        uses: pnpm/action-setup@v5
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v6
+      - uses: voidzero-dev/setup-vp@v1
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "pnpm"
+          cache: true
       - name: Install dependencies
-        run: pnpm install
-      - name: Lint
-        run: pnpm run lint
-      - name: Knip
-        run: pnpm run lint:knip
+        run: vp install
       - name: Build
-        run: pnpm run build
-      - name: Typecheck
-        run: pnpm run typecheck
+        run: vp run -r build
+      - name: Check
+        run: vp check
+      - name: Test
+        run: vp test
       - name: Test types
-        run: pnpm run test:attw
+        run: vp run test:attw
