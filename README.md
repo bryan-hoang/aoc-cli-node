@@ -155,7 +155,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ----------------------------- | -------------- |
 | `getDefaultSessionCookieFile` | `() => string` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L110)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L100)
 
 ### Methods
 
@@ -183,7 +183,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | -------------------------------------- | ------------------------ |
 | `getSessionCookieFromDefaultLocations` | `() => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L77)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L71)
 
 #### :gear: getSessionCookieFromFile
 
@@ -191,7 +191,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | -------------------------- | ------------------------------------ |
 | `getSessionCookieFromFile` | `(file: string) => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L98)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L88)
 
 #### :gear: sessionCookie
 
@@ -199,7 +199,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | --------------- | --------------------------------------------- |
 | `sessionCookie` | `(sessionCookie: string) => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L115)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L105)
 
 #### :gear: year
 
@@ -207,7 +207,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ------ | ------------------------------------ |
 | `year` | `(year: number) => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L126)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L116)
 
 #### :gear: day
 
@@ -215,7 +215,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ------ | ----------------------------------- |
 | `day`  | `(day: number) => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L135)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L125)
 
 #### :gear: latestPuzzleDay
 
@@ -223,7 +223,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ----------------- | ------------------------ |
 | `latestPuzzleDay` | `() => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L149)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L139)
 
 #### :gear: latestEventYear
 
@@ -231,7 +231,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ----------------- | ------------------------ |
 | `latestEventYear` | `() => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L169)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L159)
 
 #### :gear: overwriteFiles
 
@@ -239,11 +239,11 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ---------------- | ----------------------------------------------- |
 | `overwriteFiles` | `(overwriteFiles: boolean) => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L182)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L172)
 
 ## :factory: AocClient
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L188)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L178)
 
 ### Static Methods
 
@@ -255,7 +255,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ------------ | ------------------------ |
 | `getBuilder` | `() => AocClientBuilder` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L199)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L189)
 
 ### Methods
 
@@ -268,7 +268,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | ------------------- | ------------ |
 | `ensureDayUnlocked` | `() => void` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L248)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L238)
 
 #### :gear: isDayUnlocked
 
@@ -276,7 +276,7 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 | --------------- | --------------- |
 | `isDayUnlocked` | `() => boolean` |
 
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L254)
+[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L244)
 
 <!-- TSDOC_END -->
 

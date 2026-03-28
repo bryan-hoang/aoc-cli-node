@@ -3,11 +3,11 @@
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
 	"type": "module",
 	"scripts": {
-		"build:docs": "automd && tsdoc --src=packages/aoc-client/src/lib.ts --repo=https://github.com/bryan-hoang/aoc-cli-node && vp run build:docs",
+		"build:docs": "automd && tsdoc --src=packages/aoc-client/src/lib.ts --repo=https://github.com/bryan-hoang/aoc-cli-node && vp fmt",
 		"changeset": "vp run changeset",
 		"lint:knip": "vp run knip",
 		"prepare": "husky",
-		"prerelease": "vp run build",
+		"prerelease": "vp run --recursive build",
 		"release": "vp run changeset publish",
 		"test": "vp test",
 		"test:attw": "vp run test:attw",
