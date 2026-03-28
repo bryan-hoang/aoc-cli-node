@@ -1,33 +1,31 @@
-import { AocClient, AocClientBuilder } from '@bryan-hoang/aoc-client';
-import type { ArgsDef, CommandContext, ParsedArgs } from 'citty';
-import { debugLog } from '../debug';
+import { AocClient, AocClientBuilder } from "@bryan-hoang/aoc-client";
+import type { ArgsDef, CommandContext, ParsedArgs } from "citty";
+import { debugLog } from "../debug";
 
 export const sharedArgs = {
 	day: {
-		alias: 'd',
-		type: 'string',
-		description:
-			'Puzzle day [default: last unlocked day (during Advent of Code month)]',
-		valueHint: 'DAY',
+		alias: "d",
+		type: "string",
+		description: "Puzzle day [default: last unlocked day (during Advent of Code month)]",
+		valueHint: "DAY",
 	},
 	year: {
-		alias: 'y',
-		type: 'string',
-		description:
-			'Puzzle year [default: year of current or last Advent of Code event]',
-		valueHint: 'YEAR',
+		alias: "y",
+		type: "string",
+		description: "Puzzle year [default: year of current or last Advent of Code event]",
+		valueHint: "YEAR",
 	},
-	'session-file': {
-		alias: 's',
-		type: 'string',
-		description: 'Path to session cookie file',
+	"session-file": {
+		alias: "s",
+		type: "string",
+		description: "Path to session cookie file",
 		default: AocClientBuilder.getDefaultSessionCookieFile() as string,
-		valueHint: 'PATH',
+		valueHint: "PATH",
 	},
 	help: {
-		alias: 'h',
-		type: 'string',
-		description: 'Print help information',
+		alias: "h",
+		type: "string",
+		description: "Print help information",
 	},
 } as const;
 
@@ -36,12 +34,11 @@ export function sharedSetup<TSharedArgs extends ArgsDef = ArgsDef>(
 ): void {
 	// Shared setup should always use the same shared arguments.
 	const args = context.args as ParsedArgs<typeof sharedArgs>;
-	debugLog('Setup args:', args);
+	debugLog("Setup args:", args);
 
-	const builder: AocClientBuilder =
-		context.data?.builder ?? AocClient.getBuilder();
+	const builder: AocClientBuilder = context.data?.builder ?? AocClient.getBuilder();
 
-	builder.getSessionCookieFromFile(args['session-file']);
+	builder.getSessionCookieFromFile(args["session-file"]);
 
 	const year = Number(args.year);
 	const day = Number(args.day);

@@ -1,35 +1,35 @@
-import { AocClient } from '@bryan-hoang/aoc-client';
-import { type CommandDef, defineCommand } from 'citty';
-import consola from 'consola';
-import { sharedArgs, sharedSetup } from './_shared';
+import { AocClient } from "@bryan-hoang/aoc-client";
+import { type CommandDef, defineCommand } from "citty";
+import consola from "consola";
+import { sharedArgs, sharedSetup } from "./_shared";
 
 const downloadArgs = {
-	'input-only': {
-		alias: 'I',
-		type: 'boolean',
-		description: 'Download puzzle input only',
+	"input-only": {
+		alias: "I",
+		type: "boolean",
+		description: "Download puzzle input only",
 	},
-	'puzzle-only': {
-		alias: 'P',
-		type: 'boolean',
-		description: 'Download puzzle description only',
+	"puzzle-only": {
+		alias: "P",
+		type: "boolean",
+		description: "Download puzzle description only",
 	},
-	'input-file': {
-		alias: 'i',
-		type: 'string',
-		description: 'Path where to save puzzle input',
-		default: 'input',
+	"input-file": {
+		alias: "i",
+		type: "string",
+		description: "Path where to save puzzle input",
+		default: "input",
 	},
-	'puzzle-file': {
-		alias: 'p',
-		type: 'string',
-		description: 'Path where to save puzzle description',
-		default: 'puzzle.md',
+	"puzzle-file": {
+		alias: "p",
+		type: "string",
+		description: "Path where to save puzzle description",
+		default: "puzzle.md",
 	},
 	overwrite: {
-		alias: 'o',
-		type: 'boolean',
-		description: 'Overwrite files if they already exist',
+		alias: "o",
+		type: "boolean",
+		description: "Overwrite files if they already exist",
 		default: false,
 	},
 } as const;
@@ -41,8 +41,8 @@ const args: typeof downloadArgs & typeof sharedArgs = {
 
 const download: CommandDef<typeof args> = defineCommand({
 	meta: {
-		name: 'download',
-		description: 'Save puzzle description and input to files',
+		name: "download",
+		description: "Save puzzle description and input to files",
 	},
 	args,
 	setup(context) {
@@ -56,14 +56,14 @@ const download: CommandDef<typeof args> = defineCommand({
 	async run({ args, data }) {
 		const client: AocClient = data.client;
 		try {
-			if (!args['input-only']) {
+			if (!args["input-only"]) {
 				await client.savePuzzleMarkdown();
-				consola.log(`🎅 Saved puzzle to ${args['puzzle-file']}`);
+				consola.log(`🎅 Saved puzzle to ${args["puzzle-file"]}`);
 			}
 
-			if (!args['puzzle-only']) {
+			if (!args["puzzle-only"]) {
 				await client.saveInput();
-				consola.log(`🎅 Saved input to ${args['input-file']}`);
+				consola.log(`🎅 Saved input to ${args["input-file"]}`);
 			}
 		} catch (error: unknown) {
 			if (!(error instanceof Error)) {
@@ -71,10 +71,10 @@ const download: CommandDef<typeof args> = defineCommand({
 			}
 
 			// @ts-expect-error
-			if (error.code === 'EEXIST') {
+			if (error.code === "EEXIST") {
 				// @ts-expect-error
 				consola.error(`${error.path} already exists, not overwriting`);
-				consola.info('Consider passing the -o|--overwrite option');
+				consola.info("Consider passing the -o|--overwrite option");
 				process.exit(1);
 			} else {
 				throw error;

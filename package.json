@@ -3,36 +3,35 @@
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
 	"type": "module",
 	"scripts": {
-		"build": "pnpm --filter @bryan-hoang/aoc-client run build && pnpm --filter @bryan-hoang/aoc-cli run build",
-		"build:docs": "automd && tsdoc --src=packages/aoc-client/src/lib.ts --repo=https://github.com/bryan-hoang/aoc-cli-node && pnpm run -r build:docs",
-		"changeset": "changeset",
-		"lint": "biome check",
-		"lint:knip": "knip",
+		"build:docs": "automd && tsdoc --src=packages/aoc-client/src/lib.ts --repo=https://github.com/bryan-hoang/aoc-cli-node && vp run build:docs",
+		"changeset": "vp run changeset",
+		"lint:knip": "vp run knip",
 		"prepare": "husky",
-		"prerelease": "pnpm run build",
-		"release": "changeset publish",
-		"test": "pnpm --filter './packages/**' test run",
-		"test:attw": "pnpm --filter './packages/**' test:attw",
-		"typecheck": "tsc --noEmit"
+		"prerelease": "vp run build",
+		"release": "vp run changeset publish",
+		"test": "vp test",
+		"test:attw": "vp run test:attw",
+		"typecheck": "vp check"
+	},
+	"dependencies": {
+		"@rolldown/binding-linux-x64-gnu": "1.0.0-rc.11"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "catalog:",
 		"@changesets/cli": "catalog:",
 		"@total-typescript/tsconfig": "catalog:",
 		"@tsconfig/strictest": "catalog:",
 		"@types/node": "catalog:",
+		"@voidzero-dev/vite-plus-linux-x64-gnu": "^0.1.14",
 		"automd": "catalog:",
-		"husky": "catalog:",
+		"husky": "^9.1.7",
 		"knip": "catalog:",
-		"lint-staged": "catalog:",
 		"tsdoc-markdown": "catalog:",
 		"typescript": "catalog:",
-		"vitest": "catalog:"
+		"vite-plus": "catalog:"
 	},
 	"packageManager": "pnpm@10.33.0",
 	"pnpm": {
 		"onlyBuiltDependencies": [
-			"@biomejs/biome",
 			"@parcel/watcher",
 			"esbuild"
 		],

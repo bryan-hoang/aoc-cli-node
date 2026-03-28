@@ -1,30 +1,40 @@
 packages:
   - packages/*
 catalog:
-  '@arethetypeswrong/cli': ^0.18.0
-  '@biomejs/biome': ^2.3.6
-  '@changesets/cli': ^2.27.12
-  '@total-typescript/tsconfig': ^1.0.4
-  '@tsconfig/strictest': ^2.0.5
-  '@types/debug': ^4.1.12
-  '@types/node': ^24.0.0
-  '@types/turndown': ^5.0.5
-  automd: ^0.4.0
-  citty: ^0.1.6
-  consola: ^3.4.0
-  cookie-es: ^3.0.0
-  debug: ^4.4.0
+  "@arethetypeswrong/cli": ^0.18.2
+  "@changesets/cli": ^2.30.0
+  "@total-typescript/tsconfig": ^1.0.4
+  "@tsconfig/strictest": ^2.0.8
+  "@types/debug": ^4.1.13
+  "@types/node": ^25.5.0
+  "@types/turndown": ^5.0.6
+  automd: ^0.4.3
+  citty: ^0.2.1
+  consola: ^3.4.2
+  cookie-es: ^3.1.1
+  debug: ^4.4.3
   defu: ^6.1.4
   env-paths: ^4.0.0
   husky: ^9.1.7
-  knip: ^6.0.0
-  lint-staged: ^16.0.0
-  ofetch: ^1.4.1
-  pathe: ^2.0.2
-  temporal-polyfill: ^0.3.0
-  tsdoc-markdown: ^1.1.1
-  turndown: ^7.2.0
+  knip: ^6.0.6
+  ofetch: ^1.5.1
+  pathe: ^2.0.3
+  temporal-polyfill: ^0.3.2
+  tsdoc-markdown: ^1.4.1
+  turndown: ^7.2.2
   type-level-regexp: ^0.1.17
-  typescript: ^6.0.0
+  typescript: ^6.0.2
   unbuild: ^3.6.1
-  vitest: ^4.0.0
+  vitest: npm:@voidzero-dev/vite-plus-test@latest
+  vite: npm:@voidzero-dev/vite-plus-core@latest
+  vite-plus: latest
+overrides:
+  vite: "catalog:"
+  vitest: "catalog:"
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: "*"
+    vitest: "*"

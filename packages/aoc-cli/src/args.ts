@@ -1,5 +1,5 @@
-import type { Arg, ArgsDef } from 'citty';
-import { toArray } from './_utils';
+import type { Arg, ArgsDef } from "citty";
+import { toArray } from "./_utils";
 
 export function resolveArgs(argsDef: ArgsDef): Arg[] {
 	const args: Arg[] = [];
