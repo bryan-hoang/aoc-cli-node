@@ -21,6 +21,9 @@ catalogs:
     '@types/debug':
       specifier: ^4.1.13
       version: 4.1.13
+    '@types/node':
+      specifier: ^25.5.0
+      version: 25.5.2
     '@types/turndown':
       specifier: ^5.0.6
       version: 5.0.6
@@ -82,8 +85,8 @@ importers:
   .:
     dependencies:
       '@rolldown/binding-linux-x64-gnu':
-        specifier: 1.0.0-rc.12
-        version: 1.0.0-rc.12
+        specifier: 1.0.0-rc.13
+        version: 1.0.0-rc.13
     devDependencies:
       '@changesets/cli':
         specifier: 'catalog:'
@@ -988,6 +991,13 @@ packages:
 
   '@rolldown/binding-linux-x64-gnu@1.0.0-rc.12':
     resolution: {integrity: sha512-RNrafz5bcwRy+O9e6P8Z/OCAJW/A+qtBczIqVYwTs14pf4iV1/+eKEjdOUta93q2TsT/FI0XYDP3TCky38LMAg==}
+    engines: {node: ^20.19.0 || >=22.12.0}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.13':
+    resolution: {integrity: sha512-eRrPvat2YaVQcwwKi/JzOP6MKf1WRnOCr+VaI3cTWz3ZoLcP/654z90lVCJ4dAuMEpPdke0n+qyAqXDZdIC4rA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
@@ -2748,7 +2758,10 @@ snapshots:
   '@rolldown/binding-linux-s390x-gnu@1.0.0-rc.12':
     optional: true
 
-  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.12': {}
+  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.12':
+    optional: true
+
+  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.13': {}
 
   '@rolldown/binding-linux-x64-musl@1.0.0-rc.12':
     optional: true
