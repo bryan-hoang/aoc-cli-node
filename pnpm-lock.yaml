@@ -42,6 +42,9 @@ catalogs:
     debug:
       specifier: ^4.4.3
       version: 4.4.3
+    defu:
+      specifier: ^6.1.4
+      version: 6.1.7
     env-paths:
       specifier: ^4.0.0
       version: 4.0.0
@@ -99,7 +102,7 @@ importers:
         version: 25.5.2
       '@voidzero-dev/vite-plus-linux-x64-gnu':
         specifier: ^0.1.14
-        version: 0.1.15
+        version: 0.1.16
       automd:
         specifier: 'catalog:'
         version: 0.4.3
@@ -1164,18 +1167,11 @@ packages:
     os: [linux]
     libc: [musl]
 
-  '@voidzero-dev/vite-plus-linux-x64-gnu@0.1.15':
-    resolution: {integrity: sha512-aT5Yr2GphvRjoc2URmELDqjWwhe5VPvyy15Tzum+jPhEjY4I/lPXxKXEROjQe3TIv6MmFSHCe3oNCSaFdUE1pA==}
-    engines: {node: ^20.19.0 || >=22.12.0}
-    cpu: [x64]
-    os: [linux]
-
   '@voidzero-dev/vite-plus-linux-x64-gnu@0.1.16':
     resolution: {integrity: sha512-nY9/2g+qjhwsW5U3MrFLlx+bOBsdOJiO2HzbxQy7jo/S3jPTnXhFlrRegQuAmqrHAXrSdNwgblgRpICKhx1xZg==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
-    libc: [glibc]
 
   '@voidzero-dev/vite-plus-linux-x64-musl@0.1.16':
     resolution: {integrity: sha512-JGKEAMoXqzdr9lHT/13uRNV9uzrSYXAFhjAfIC8WEQMG2VUFksvq5/TOc26hzmzbqu+bxRmfN8h1aVTDL8KwFg==}
@@ -2869,10 +2865,7 @@ snapshots:
   '@voidzero-dev/vite-plus-linux-arm64-musl@0.1.16':
     optional: true
 
-  '@voidzero-dev/vite-plus-linux-x64-gnu@0.1.15': {}
-
-  '@voidzero-dev/vite-plus-linux-x64-gnu@0.1.16':
-    optional: true
+  '@voidzero-dev/vite-plus-linux-x64-gnu@0.1.16': {}
 
   '@voidzero-dev/vite-plus-linux-x64-musl@0.1.16':
     optional: true
