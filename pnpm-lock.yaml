@@ -48,6 +48,9 @@ catalogs:
     env-paths:
       specifier: ^4.0.0
       version: 4.0.0
+    knip:
+      specifier: ^6.0.6
+      version: 6.3.1
     ofetch:
       specifier: ^1.5.1
       version: 1.5.1
@@ -82,8 +85,8 @@ importers:
   .:
     dependencies:
       '@rolldown/binding-linux-x64-gnu':
-        specifier: 1.0.0-rc.13
-        version: 1.0.0-rc.13
+        specifier: 1.0.0-rc.15
+        version: 1.0.0-rc.15
     devDependencies:
       '@changesets/cli':
         specifier: 'catalog:'
@@ -996,8 +999,8 @@ packages:
     os: [linux]
     libc: [glibc]
 
-  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.13':
-    resolution: {integrity: sha512-eRrPvat2YaVQcwwKi/JzOP6MKf1WRnOCr+VaI3cTWz3ZoLcP/654z90lVCJ4dAuMEpPdke0n+qyAqXDZdIC4rA==}
+  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.15':
+    resolution: {integrity: sha512-023bTPBod7J3Y/4fzAN6QtpkSABR0rigtrwaP+qSEabUh5zf6ELr9Nc7GujaROuPY3uwdSIXWrvhn1KxOvurWA==}
     engines: {node: ^20.19.0 || >=22.12.0}
     cpu: [x64]
     os: [linux]
@@ -2765,7 +2768,7 @@ snapshots:
   '@rolldown/binding-linux-x64-gnu@1.0.0-rc.12':
     optional: true
 
-  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.13': {}
+  '@rolldown/binding-linux-x64-gnu@1.0.0-rc.15': {}
 
   '@rolldown/binding-linux-x64-musl@1.0.0-rc.12':
     optional: true
