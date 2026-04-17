@@ -14,7 +14,7 @@
 		"typecheck": "vp check"
 	},
 	"dependencies": {
-		"@rolldown/binding-linux-x64-gnu": "1.0.0-rc.15"
+		"@rolldown/binding-linux-x64-gnu": "1.0.0-rc.16"
 	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
