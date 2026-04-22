@@ -48,9 +48,6 @@ catalogs:
     env-paths:
       specifier: ^4.0.0
       version: 4.0.0
-    knip:
-      specifier: ^6.0.6
-      version: 6.5.0
     ofetch:
       specifier: ^1.5.1
       version: 1.5.1
@@ -111,7 +108,7 @@ importers:
         version: 9.1.7
       knip:
         specifier: 'catalog:'
-        version: 6.5.0(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)
+        version: 6.6.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)
       tsdoc-markdown:
         specifier: 'catalog:'
         version: 1.4.1(typescript@6.0.3)
@@ -1549,8 +1546,8 @@ packages:
   jsonfile@4.0.0:
     resolution: {integrity: sha512-m6F1R3z8jjlf2imQHS2Qez5sjKWQzbuuhuJ/FKYFRZvPE3PuHcSMVZzfsLhGVOkfd20obL5SWEBew5ShlquNxg==}
 
-  knip@6.5.0:
-    resolution: {integrity: sha512-84xSq/g8CtPWLJcY5WZeGWj/pbqQxJRC7iXTTutB0MkMm260hKxlzIXSTnxuTuIxre2MBSokhLkfth8dQQYVPQ==}
+  knip@6.6.1:
+    resolution: {integrity: sha512-SOmqh25vuAfdynGoDr/kMCxIuD5+PkMIfMSGQeMqfrxwuPTANvJKcVttLgGZjjkATALqukSe/hhDVqcwNkf92g==}
     engines: {node: ^20.19.0 || >=22.12.0}
     hasBin: true
 
@@ -3179,16 +3176,15 @@ snapshots:
     optionalDependencies:
       graceful-fs: 4.2.11
 
-  knip@6.5.0(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2):
+  knip@6.6.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2):
     dependencies:
-      '@nodelib/fs.walk': 1.2.8
+      fdir: 6.5.0(picomatch@4.0.4)
       formatly: 0.3.0
       get-tsconfig: 4.14.0
       jiti: 2.6.1
       minimist: 1.2.8
       oxc-parser: 0.126.0
       oxc-resolver: 11.19.1(@emnapi/core@1.9.2)(@emnapi/runtime@1.9.2)
-      picocolors: 1.1.1
       picomatch: 4.0.4
       smol-toml: 1.6.1
       strip-json-comments: 5.0.3
