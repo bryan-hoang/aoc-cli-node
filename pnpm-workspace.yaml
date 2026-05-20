@@ -1,5 +1,7 @@
 packages:
   - packages/*
+allowBuilds:
+  "@parcel/watcher": true
 catalog:
   "@arethetypeswrong/cli": ^0.18.2
   "@changesets/cli": ^2.30.0
