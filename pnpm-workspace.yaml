@@ -27,16 +27,13 @@ catalog:
   type-level-regexp: ^0.1.17
   typescript: ^6.0.2
   unbuild: ^3.6.1
-  vitest: npm:@voidzero-dev/vite-plus-test@latest
   vite: npm:@voidzero-dev/vite-plus-core@latest
   vite-plus: latest
 overrides:
   vite: "catalog:"
-  vitest: "catalog:"
 peerDependencyRules:
   allowAny:
     - vite
-    - vitest
   allowedVersions:
     vite: "*"
-    vitest: "*"
+enableGlobalVirtualStore: false

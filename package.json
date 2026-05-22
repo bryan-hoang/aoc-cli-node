@@ -13,15 +13,11 @@
 		"test:attw": "vp run test:attw",
 		"typecheck": "vp check"
 	},
-	"dependencies": {
-		"@rolldown/binding-linux-x64-gnu": "1.0.0"
-	},
 	"devDependencies": {
 		"@changesets/cli": "catalog:",
 		"@total-typescript/tsconfig": "catalog:",
 		"@tsconfig/strictest": "catalog:",
 		"@types/node": "catalog:",
-		"@voidzero-dev/vite-plus-linux-x64-gnu": "^0.1.14",
 		"automd": "catalog:",
 		"husky": "^9.1.7",
 		"knip": "catalog:",
