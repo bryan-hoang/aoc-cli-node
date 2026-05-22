@@ -10,14 +10,24 @@ client library for Advent of Code.
 - **`packages/aoc-client`**: The core client library
   (`@bryan-hoang/aoc-client`). Entrypoint is `src/lib.ts`.
 - **Root**: Contains workspace configuration (`pnpm-workspace.yaml`). Uses
-  `pnpm`'s `catalog:` feature for shared dependency versions.
+  `pnpm`'s `catalog:` feature for shared dependency versions. **CRITICAL**: If
+  you add a dependency that is already in the workspace catalog, you MUST set
+  its version to `"catalog:"` in the `package.json` instead of a hardcoded
+  version.
 
 ## Developer Workflow
 
 This repository uses **Vite+** (`vp`) as the unified toolchain for package
 management, building, testing, linting, and formatting.
 
-**CRITICAL**: Do NOT use `pnpm` directly. Always use the `vp` CLI.
+**CRITICAL RULES**:
+
+- Do NOT use `pnpm` directly. Always use the `vp` CLI.
+- Run `vp run build:docs` before committing ANY changes to the API in
+  `packages/aoc-client/src/lib.ts` to ensure `README.md` docs stay in sync via
+  `automd` and `tsdoc`.
+- Before concluding any task, verify your changes by running `vp run -r build`,
+  `vp check`, `vp test`, and `vp run test:attw`.
 
 ### Important Commands
 
