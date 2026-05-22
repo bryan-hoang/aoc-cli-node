@@ -1,6 +1,9 @@
 {
 	"extends": ["@tsconfig/strictest", "@total-typescript/tsconfig/bundler/no-dom/library-monorepo"],
 	"compilerOptions": {
+		"paths": {
+			"@bryan-hoang/*": ["./packages/*/src"]
+		},
 		"allowJs": false,
 		"checkJs": false,
 		"declaration": true,
