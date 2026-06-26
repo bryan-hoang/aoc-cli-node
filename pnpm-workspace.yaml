@@ -21,7 +21,7 @@ catalog:
   knip: ^6.0.6
   ofetch: ^1.5.1
   pathe: ^2.0.3
-  temporal-polyfill: ^0.3.2
+  temporal-polyfill: ^1.0.0
   tsdoc-markdown: ^1.4.1
   turndown: ^7.2.2
   type-level-regexp: ^0.1.17
