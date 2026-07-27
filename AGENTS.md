@@ -1,162 +1,57 @@
-# Repository Instructions for Agents
+# Repository Instructions
 
-This is a Node.js monorepo for the `aoc-cli-node` project, providing a CLI and
-client library for Advent of Code.
+## Architecture
 
-## Architecture & Boundaries
+- This pnpm workspace contains two packages; `@bryan-hoang/aoc-cli` depends on
+  `@bryan-hoang/aoc-client` through `workspace:*`.
+- CLI source starts at `packages/aoc-cli/src/index.ts`; Citty command
+  definitions live under `src/commands/`. `bin/aoc.mjs` loads `dist/index.mjs`,
+  so build the package before running that binary from the checkout.
+- The client public barrel is `packages/aoc-client/src/index.ts`. Its behavior
+  and generated API documentation are centered in `src/lib.ts`.
 
-- **`packages/aoc-cli`**: The command-line tool (`@bryan-hoang/aoc-cli`).
-  Entrypoint is `bin/aoc.mjs`. Uses `citty` for command definitions.
-- **`packages/aoc-client`**: The core client library
-  (`@bryan-hoang/aoc-client`). Entrypoint is `src/lib.ts`.
-- **Root**: Contains workspace configuration (`pnpm-workspace.yaml`). Uses
-  `pnpm`'s `catalog:` feature for shared dependency versions. **CRITICAL**: If
-  you add a dependency that is already in the workspace catalog, you MUST set
-  its version to `"catalog:"` in the `package.json` instead of a hardcoded
-  version.
+## Toolchain
 
-## Developer Workflow
+- Use Vite+ (`vp`) for dependency and task commands. Do not invoke
+  `pnpm`/`npm`/`yarn`/`npx` directly, despite the pnpm lockfile and
+  `packageManager` field.
+- Vite+ built-ins and package scripts are different: use `vp check` and
+  `vp test`, but `vp run <script>` for scripts from `package.json`.
+- Vite+ supplies Vite, Vitest, Oxfmt, Oxlint, and tsdown. Do not add them as
+  separate dependencies; import config from `vite-plus` and test APIs from
+  `vite-plus/test`.
+- `vp check` includes formatting, type-aware linting, and TypeScript checks;
+  formatting uses tabs. Use `vp check --fix <paths>` to apply focused fixes.
+- Reuse `catalog:` for dependencies already listed in `pnpm-workspace.yaml`.
 
-This repository uses **Vite+** (`vp`) as the unified toolchain for package
-management, building, testing, linting, and formatting.
+## Commands
 
-**CRITICAL RULES**:
+- Run full verification from the repository root in CI order. The filtered final
+  command is intentional: CI's current `vp run test:attw` selects no package
+  tasks.
 
-- Do NOT use `pnpm` directly. Always use the `vp` CLI.
-- Run `vp run build:docs` before committing ANY changes to the API in
-  `packages/aoc-client/src/lib.ts` to ensure `README.md` docs stay in sync via
-  `automd` and `tsdoc`.
-- Before concluding any task, verify your changes by running `vp run -r build`,
-  `vp check`, `vp test`, and `vp run test:attw`.
+  ```sh
+  vp install
+  vp run -r build
+  vp check
+  vp test
+  vp run --filter "@bryan-hoang/aoc-client" --fail-if-no-match test:attw
+  ```
 
-### Important Commands
+- Run one test with `vp test run <test-file> -t "<test name>"`.
+- Run one package script with
+  `vp run --filter "@bryan-hoang/aoc-client" --fail-if-no-match <script>`.
 
-- `vp run -r build` (or `vp run --recursive build`): Build all packages in the
-  monorepo.
-- `vp check`: Run format, lint, and TypeScript type checks.
-- `vp test`: Run all tests.
-- `vp run test:attw`: Run `Are The Types Wrong` to validate package exports.
-- `vp run lint:knip`: Run Knip to check for unused dependencies, exports, and
-  files.
-- `vp run build:docs`: Auto-generate documentation in `README.md` (via `automd`)
-  and build `tsdoc` API docs for `aoc-client`.
+## Generated Documentation
 
-<!--VITE PLUS START-->
+- README sections inside `automd` or `TSDOC` markers are generated. After a
+  public API or TSDoc change in `packages/aoc-client/src/lib.ts`, run
+  `vp run build:docs` from the root and include the resulting README changes.
 
-## Using Vite+, the Unified Toolchain for the Web
+## Tests And Credentials
 
-This project is using Vite+, a unified toolchain built on top of Vite, Rolldown,
-Vitest, tsdown, Oxlint, Oxfmt, and Vite Task. Vite+ wraps runtime management,
-package management, and frontend tooling in a single global CLI called `vp`.
-Vite+ is distinct from Vite, but it invokes Vite through `vp dev` and
-`vp build`.
-
-### Vite+ Workflow
-
-`vp` is a global binary that handles the full development lifecycle. Run
-`vp help` to print a list of commands and `vp <command> --help` for information
-about a specific command.
-
-#### Start
-
-- create - Create a new project from a template
-- migrate - Migrate an existing project to Vite+
-- config - Configure hooks and agent integration
-- staged - Run linters on staged files
-- install (`i`) - Install dependencies
-- env - Manage Node.js versions
-
-#### Develop
-
-- dev - Run the development server
-- check - Run format, lint, and TypeScript type checks
-- lint - Lint code
-- fmt - Format code
-- test - Run tests
-
-#### Execute
-
-- run - Run monorepo tasks
-- exec - Execute a command from local `node_modules/.bin`
-- dlx - Execute a package binary without installing it as a dependency
-- cache - Manage the task cache
-
-#### Build
-
-- build - Build for production
-- pack - Build libraries
-- preview - Preview production build
-
-#### Manage Dependencies
-
-Vite+ automatically detects and wraps the underlying package manager such as
-pnpm, npm, or Yarn through the `packageManager` field in `package.json` or
-package manager-specific lockfiles.
-
-- add - Add packages to dependencies
-- remove (`rm`, `un`, `uninstall`) - Remove packages from dependencies
-- update (`up`) - Update packages to latest versions
-- dedupe - Deduplicate dependencies
-- outdated - Check for outdated packages
-- list (`ls`) - List installed packages
-- why (`explain`) - Show why a package is installed
-- info (`view`, `show`) - View package information from the registry
-- link (`ln`) / unlink - Manage local package links
-- pm - Forward a command to the package manager
-
-#### Maintain
-
-- upgrade - Update `vp` itself to the latest version
-
-These commands map to their corresponding tools. For example,
-`vp dev --port 3000` runs Vite's dev server and works the same as Vite.
-`vp test` runs JavaScript tests through the bundled Vitest. The version of all
-tools can be checked using `vp --version`. This is useful when researching
-documentation, features, and bugs.
-
-### Common Pitfalls
-
-- **Using the package manager directly:** Do not use pnpm, npm, or Yarn
-  directly. Vite+ can handle all package manager operations.
-- **Always use Vite commands to run tools:** Don't attempt to run `vp vitest` or
-  `vp oxlint`. They do not exist. Use `vp test` and `vp lint` instead.
-- **Running scripts:** Vite+ built-in commands (`vp dev`, `vp build`, `vp test`,
-  etc.) always run the Vite+ built-in tool, not any `package.json` script of the
-  same name. To run a custom script that shares a name with a built-in command,
-  use `vp run <script>`. For example, if you have a custom `dev` script that
-  runs multiple services concurrently, run it with `vp run dev`, not `vp dev`
-  (which always starts Vite's dev server).
-- **Do not install Vitest, Oxlint, Oxfmt, or tsdown directly:** Vite+ wraps
-  these tools. They must not be installed directly. You cannot upgrade these
-  tools by installing their latest versions. Always use Vite+ commands.
-- **Use Vite+ wrappers for one-off binaries:** Use `vp dlx` instead of
-  package-manager-specific `dlx`/`npx` commands.
-- **Import JavaScript modules from `vite-plus`:** Instead of importing from
-  `vite` or `vitest`, all modules should be imported from the project's
-  `vite-plus` dependency. For example,
-  `import { defineConfig } from 'vite-plus';` or
-  `import { expect, test, vi } from 'vite-plus/test';`. You must not install
-  `vitest` to import test utilities.
-- **Type-Aware Linting:** There is no need to install `oxlint-tsgolint`,
-  `vp lint --type-aware` works out of the box.
-
-### CI Integration
-
-For GitHub Actions, consider using
-[`voidzero-dev/setup-vp`](https://github.com/voidzero-dev/setup-vp) to replace
-separate `actions/setup-node`, package-manager setup, cache, and install steps
-with a single action.
-
-```yaml
-- uses: voidzero-dev/setup-vp@v1
-  with:
-    cache: true
-- run: vp check
-- run: vp test
-```
-
-### Review Checklist for Agents
-
-- [ ] Run `vp install` after pulling remote changes and before getting started.
-- [ ] Run `vp check` and `vp test` to validate changes.
-<!--VITE PLUS END-->
+- Tests are colocated under package `src/` directories. Two session-loading
+  tests in `packages/aoc-client/src/lib.test.ts` are skipped when `CI` is set.
+- Authentication resolves `ADVENT_OF_CODE_SESSION` first, then
+  `advent-of-code/session-cookie.txt` in the OS config directory. Never use a
+  real session cookie or live answer submission in automated tests.
