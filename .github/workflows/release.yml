@@ -94,6 +94,8 @@ jobs:
         with:
           node-version: lts/*
           cache: false
+      - name: Verify npm trusted publishers
+        run: vp exec node .github/scripts/verify-npm-oidc.mjs
       - name: Publish packages
         uses: changesets/action/publish@8488615a623b1b9c987934bb89eae8af6a946ac1 # v2.1.1
         with:
