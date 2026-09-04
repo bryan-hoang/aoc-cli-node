@@ -26,7 +26,7 @@ jobs:
       matrix:
         # See supported Node.js release schedule at
         # https://nodejs.org/en/about/previous-releases
-        node-version: [lts]
+        node-version: [20, lts]
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7

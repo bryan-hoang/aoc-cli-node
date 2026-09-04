@@ -35,7 +35,7 @@
 	},
 	"scripts": {
 		"build": "vp pack",
-		"build:docs": "automd",
+		"build:docs": "automd && vp fmt README.md",
 		"build:stub": "vp pack --watch"
 	},
 	"dependencies": {
@@ -47,5 +47,8 @@
 	"devDependencies": {
 		"@types/debug": "catalog:",
 		"typescript": "catalog:"
+	},
+	"engines": {
+		"node": ">=20"
 	}
 }

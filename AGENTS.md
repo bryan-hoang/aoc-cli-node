@@ -8,7 +8,7 @@
   definitions live under `src/commands/`. `bin/aoc.mjs` loads `dist/index.mjs`,
   so build the package before running that binary from the checkout.
 - The client public barrel is `packages/aoc-client/src/index.ts`. Its behavior
-  and generated API documentation are centered in `src/lib.ts`.
+  is centered in `src/lib.ts`.
 
 ## Toolchain
 
@@ -44,9 +44,9 @@
 
 ## Generated Documentation
 
-- README sections inside `automd` or `TSDOC` markers are generated. After a
-  public API or TSDoc change in `packages/aoc-client/src/lib.ts`, run
-  `vp run build:docs` from the root and include the resulting README changes.
+- README sections inside `automd` markers are generated. After changing their
+  source or marker configuration, run `vp run build:docs` from the root and
+  include the resulting README changes.
 
 ## Tests And Credentials
 

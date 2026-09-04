@@ -3,7 +3,7 @@
 	"author": "Bryan Hoang <bryan@bryanhoang.dev> (https://bryanhoang.dev/)",
 	"type": "module",
 	"scripts": {
-		"build:docs": "automd && tsdoc --src=packages/aoc-client/src/lib.ts --repo=https://github.com/bryan-hoang/aoc-cli-node && vp fmt",
+		"build:docs": "automd && vp fmt",
 		"changeset": "vp exec changeset",
 		"lint:knip": "vp run knip",
 		"prepare": "husky",
@@ -21,7 +21,6 @@
 		"automd": "catalog:",
 		"husky": "^9.1.7",
 		"knip": "catalog:",
-		"tsdoc-markdown": "catalog:",
 		"typescript": "catalog:",
 		"vite-plus": "catalog:"
 	},

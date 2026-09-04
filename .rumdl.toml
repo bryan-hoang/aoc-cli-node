@@ -1,0 +1,5 @@
+[MD013]
+code-blocks = false
+
+[per-file-ignores]
+".changeset/*.md" = ["MD041"]

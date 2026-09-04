@@ -17,6 +17,8 @@ An Advent of Code command-line tool developed using Node.js.
 
 ## Install
 
+Both packages require Node.js 20 or newer when used with Node.js.
+
 For the command-line tool:
 
 ```console
@@ -138,147 +140,6 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 ```
 
 <!-- /automd -->
-
-<!-- TSDOC_START -->
-
-## :factory: AocClientBuilder
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L27)
-
-### Static Methods
-
-- [getDefaultSessionCookieFile](#gear-getdefaultsessioncookiefile)
-
-#### :gear: getDefaultSessionCookieFile
-
-| Method                        | Type           |
-| ----------------------------- | -------------- |
-| `getDefaultSessionCookieFile` | `() => string` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L100)
-
-### Methods
-
-- [buildClient](#gear-buildclient)
-- [getSessionCookieFromDefaultLocations](#gear-getsessioncookiefromdefaultlocations)
-- [getSessionCookieFromFile](#gear-getsessioncookiefromfile)
-- [sessionCookie](#gear-sessioncookie)
-- [year](#gear-year)
-- [day](#gear-day)
-- [latestPuzzleDay](#gear-latestpuzzleday)
-- [latestEventYear](#gear-latesteventyear)
-- [overwriteFiles](#gear-overwritefiles)
-
-#### :gear: buildClient
-
-| Method        | Type              |
-| ------------- | ----------------- |
-| `buildClient` | `() => AocClient` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L35)
-
-#### :gear: getSessionCookieFromDefaultLocations
-
-| Method                                 | Type                     |
-| -------------------------------------- | ------------------------ |
-| `getSessionCookieFromDefaultLocations` | `() => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L71)
-
-#### :gear: getSessionCookieFromFile
-
-| Method                     | Type                                 |
-| -------------------------- | ------------------------------------ |
-| `getSessionCookieFromFile` | `(file: string) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L88)
-
-#### :gear: sessionCookie
-
-| Method          | Type                                          |
-| --------------- | --------------------------------------------- |
-| `sessionCookie` | `(sessionCookie: string) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L105)
-
-#### :gear: year
-
-| Method | Type                                 |
-| ------ | ------------------------------------ |
-| `year` | `(year: number) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L116)
-
-#### :gear: day
-
-| Method | Type                                |
-| ------ | ----------------------------------- |
-| `day`  | `(day: number) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L125)
-
-#### :gear: latestPuzzleDay
-
-| Method            | Type                     |
-| ----------------- | ------------------------ |
-| `latestPuzzleDay` | `() => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L139)
-
-#### :gear: latestEventYear
-
-| Method            | Type                     |
-| ----------------- | ------------------------ |
-| `latestEventYear` | `() => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L159)
-
-#### :gear: overwriteFiles
-
-| Method           | Type                                            |
-| ---------------- | ----------------------------------------------- |
-| `overwriteFiles` | `(overwriteFiles: boolean) => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L172)
-
-## :factory: AocClient
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L178)
-
-### Static Methods
-
-- [getBuilder](#gear-getbuilder)
-
-#### :gear: getBuilder
-
-| Method       | Type                     |
-| ------------ | ------------------------ |
-| `getBuilder` | `() => AocClientBuilder` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L189)
-
-### Methods
-
-- [ensureDayUnlocked](#gear-ensuredayunlocked)
-- [isDayUnlocked](#gear-isdayunlocked)
-
-#### :gear: ensureDayUnlocked
-
-| Method              | Type         |
-| ------------------- | ------------ |
-| `ensureDayUnlocked` | `() => void` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L238)
-
-#### :gear: isDayUnlocked
-
-| Method          | Type            |
-| --------------- | --------------- |
-| `isDayUnlocked` | `() => boolean` |
-
-[:link: Source](https://github.com/bryan-hoang/aoc-cli-node/tree/main/packages/aoc-client/src/lib.ts#L244)
-
-<!-- TSDOC_END -->
 
 ## Maintainers
 

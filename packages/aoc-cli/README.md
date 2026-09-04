@@ -22,6 +22,8 @@ An Advent of Code command-line tool.
 
 ## Install
 
+Requires Node.js 20 or newer.
+
 ```console
 # ✨ Auto-detect
 npx nypm install -g @bryan-hoang/aoc-cli

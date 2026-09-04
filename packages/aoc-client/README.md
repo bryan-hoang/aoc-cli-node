@@ -27,6 +27,8 @@ command-line tool, but it can also be integrated into other projects.
 
 ## Install
 
+Requires Node.js 20 or newer.
+
 <!-- automd:pm-install name="@bryan-hoang/aoc-client" -->
 
 ```sh
@@ -76,119 +78,6 @@ import { AocClientBuilder, AocClient } from "https://esm.sh/@bryan-hoang/aoc-cli
 ```
 
 <!-- /automd -->
-
-API:
-
-<!-- TSDOC_START -->
-
-## :factory: AocClientBuilder
-
-### Static Methods
-
-- [getDefaultSessionCookieFile](#gear-getdefaultsessioncookiefile)
-
-#### :gear: getDefaultSessionCookieFile
-
-| Method                        | Type           |
-| ----------------------------- | -------------- |
-| `getDefaultSessionCookieFile` | `() => string` |
-
-### Methods
-
-- [buildClient](#gear-buildclient)
-- [getSessionCookieFromDefaultLocations](#gear-getsessioncookiefromdefaultlocations)
-- [getSessionCookieFromFile](#gear-getsessioncookiefromfile)
-- [sessionCookie](#gear-sessioncookie)
-- [year](#gear-year)
-- [day](#gear-day)
-- [latestPuzzleDay](#gear-latestpuzzleday)
-- [latestEventYear](#gear-latesteventyear)
-- [overwriteFiles](#gear-overwritefiles)
-
-#### :gear: buildClient
-
-| Method        | Type              |
-| ------------- | ----------------- |
-| `buildClient` | `() => AocClient` |
-
-#### :gear: getSessionCookieFromDefaultLocations
-
-| Method                                 | Type                     |
-| -------------------------------------- | ------------------------ |
-| `getSessionCookieFromDefaultLocations` | `() => AocClientBuilder` |
-
-#### :gear: getSessionCookieFromFile
-
-| Method                     | Type                                 |
-| -------------------------- | ------------------------------------ |
-| `getSessionCookieFromFile` | `(file: string) => AocClientBuilder` |
-
-#### :gear: sessionCookie
-
-| Method          | Type                                          |
-| --------------- | --------------------------------------------- |
-| `sessionCookie` | `(sessionCookie: string) => AocClientBuilder` |
-
-#### :gear: year
-
-| Method | Type                                 |
-| ------ | ------------------------------------ |
-| `year` | `(year: number) => AocClientBuilder` |
-
-#### :gear: day
-
-| Method | Type                                |
-| ------ | ----------------------------------- |
-| `day`  | `(day: number) => AocClientBuilder` |
-
-#### :gear: latestPuzzleDay
-
-| Method            | Type                     |
-| ----------------- | ------------------------ |
-| `latestPuzzleDay` | `() => AocClientBuilder` |
-
-#### :gear: latestEventYear
-
-| Method            | Type                     |
-| ----------------- | ------------------------ |
-| `latestEventYear` | `() => AocClientBuilder` |
-
-#### :gear: overwriteFiles
-
-| Method           | Type                                            |
-| ---------------- | ----------------------------------------------- |
-| `overwriteFiles` | `(overwriteFiles: boolean) => AocClientBuilder` |
-
-## :factory: AocClient
-
-### Static Methods
-
-- [getBuilder](#gear-getbuilder)
-
-#### :gear: getBuilder
-
-| Method       | Type                     |
-| ------------ | ------------------------ |
-| `getBuilder` | `() => AocClientBuilder` |
-
-### Methods
-
-- [ensureDayUnlocked](#gear-ensuredayunlocked)
-- [isDayUnlocked](#gear-isdayunlocked)
-
-#### :gear: ensureDayUnlocked
-
-| Method              | Type         |
-| ------------------- | ------------ |
-| `ensureDayUnlocked` | `() => void` |
-
-#### :gear: isDayUnlocked
-
-| Method          | Type            |
-| --------------- | --------------- |
-| `isDayUnlocked` | `() => boolean` |
-
-<!-- TSDOC_END -->
 
 ## Maintainers
 
