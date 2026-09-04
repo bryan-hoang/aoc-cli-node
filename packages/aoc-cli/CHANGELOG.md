@@ -1,5 +1,18 @@
 # @bryan-hoang/aoc-cli
 
+## 2.0.0
+
+### Major Changes
+
+- 6e41d9c: Require Node.js 20 or newer. Wait for asynchronous commands and help output
+  before exiting, and refresh the published ESM build, type metadata, and runtime
+  dependencies.
+
+### Patch Changes
+
+- Updated dependencies [6e41d9c]
+  - @bryan-hoang/aoc-client@2.0.0
+
 ## 1.0.0
 
 ### Major Changes
