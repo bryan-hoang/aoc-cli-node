@@ -26,7 +26,7 @@ jobs:
       matrix:
         # See supported Node.js release schedule at
         # https://nodejs.org/en/about/previous-releases
-        node-version: [20, lts]
+        node-version: [lts]
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
@@ -46,6 +46,11 @@ jobs:
         run: vp test
       - name: Test types
         run: vp run test:attw
+      - name: Test Node.js 20 runtime
+        run: |
+          vp env exec --node 20 node -e "const client = require('./packages/aoc-client'); if (!client.AocClient || !client.AocClientBuilder) process.exit(1)"
+          vp env exec --node 20 node --input-type=module -e "const client = await import('./packages/aoc-client/dist/index.mjs'); if (!client.AocClient || !client.AocClientBuilder) process.exit(1)"
+          vp env exec --node 20 node packages/aoc-cli/bin/aoc.mjs help
 
   release:
     needs: build
