@@ -47,7 +47,7 @@
 ### Patch Changes
 
 - Resolve a warning recommending that `aoc-cli/package.json` have `"type":
-ommonjs"` by having the cli's entrypoint have an explicit `.mjs` file
+  ommonjs"` by having the cli's entrypoint have an explicit `.mjs` file
   extension.
 - Fix an error causing the output to contain a mix of ES & CommonJS module
   syntax due to a transitive dependency on `turndown`.
