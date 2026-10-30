@@ -8,7 +8,7 @@ catalog:
   "@total-typescript/tsconfig": ^1.0.4
   "@tsconfig/strictest": ^2.0.8
   "@types/debug": ^4.1.13
-  "@types/node": ^25.5.0
+  "@types/node": ^26.0.0
   "@types/turndown": ^5.0.6
   automd: ^0.4.3
   citty: ^0.2.1
